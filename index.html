@@ -179,6 +179,7 @@ body{
   max-width:90%;
   max-height:85%;
   border-radius:15px;
+  touch-action: none;
 }
 
 .close{
@@ -436,6 +437,26 @@ function scrollToSection(id){
 function openImg(src){
   document.getElementById("popup").style.display="block";
   document.getElementById("full").src = src;
+}
+
+function closeImg(){
+  document.getElementById("popup").style.display="none";
+}
+</script>
+  
+<script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom/dist/panzoom.min.js"></script>
+
+<script>
+const image = document.getElementById("full");
+
+function openImg(src){
+  document.getElementById("popup").style.display="block";
+  image.src = src;
+
+  Panzoom(image,{
+    maxScale:5,
+    minScale:1
+  });
 }
 
 function closeImg(){
