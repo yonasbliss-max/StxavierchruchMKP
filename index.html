@@ -155,6 +155,44 @@ body{
   transform:scale(1.1);
 }
 
+  /* 9 ஆம் ஆண்டு பங்கு விழா */
+
+.anniversary{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.anniversary h2{
+  font-size:32px;
+  margin-bottom:30px;
+}
+
+.anniversary-gallery{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.anniversary-gallery img{
+  width:200px;
+  margin:10px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.anniversary-gallery img:hover{
+  transform:scale(1.1);
+}
+
+@media(max-width:768px){
+
+  .anniversary-gallery img{
+    width:90%;
+  }
+
+}
+
 /* GROUPS */
 .group{
   max-width:800px;
@@ -210,7 +248,9 @@ body{
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <h3>God Bless You</h3>
+  <h3 onclick="scrollToSection('anniversary')" style="cursor:pointer;">
+  9ஆம் ஆண்டு பங்கு விழா
+  </h3>
   <div>
     <a href="https://youtube.com/@st.xavierschurchmkp" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" 
@@ -365,6 +405,90 @@ body{
     <img src="mkp23.jpg">
     <img src="mkp24.jpg">
   </div>
+</div>
+
+  <!-- 9 ஆம் ஆண்டு பங்கு விழா -->
+
+<div id="anniversary" class="section anniversary">
+
+  <h2>9 ஆம் ஆண்டு பங்கு விழா</h2>
+
+  <div class="anniversary-gallery">
+
+    <img src="IMG-20260810-WA00437.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00438.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00434.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00433.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00435.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00432.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00428.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00429.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00430.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00431.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00426.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00425.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00423.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00420.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00416.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00417.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00413.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00407.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00405.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00404.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00406.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00409.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00403.jpg"
+         onclick="openImg(this.src)">
+
+    <img src="IMG-20260810-WA00401.jpg"
+         onclick="openImg(this.src)">
+
+  </div>
+
 </div>
 
 <!-- GROUPS -->
