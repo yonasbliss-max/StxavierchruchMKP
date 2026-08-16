@@ -35,7 +35,7 @@
   display:flex;
   flex-direction:column;
   text-align:center;
-  animation:eventScroll 120s linear infinite;
+  animation:eventScroll 45s linear infinite;
 }
 
 .event-item{
@@ -46,6 +46,16 @@
   white-space:nowrap;
   font-size:17px;
   font-weight:600;
+}
+
+/* Smooth bottom → top scrolling */
+@keyframes eventScroll{
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform:translateY(-50%);
+  }
 }
 
 @keyframes eventScroll{
@@ -336,7 +346,43 @@ body{
 
     <div class="event-item">
       அன்னதானப் பெருவிழா, கிறிஸ்மஸ் பெருவிழா - டிசம்பர்-3,25
+      
+   </div>
+
+    <div class="event-item">
+      புதுவருடம், அந்தோணயார் பொங்கல் - ஜனவரி-1,16
     </div>
+
+    <div class="event-item">
+      சவேரியார் அருளிக்கம் நாள் - மார்ச்-1
+    </div>
+
+    <div class="event-item">
+      மாதாம் நவநாள் திருவிழா - மே 31
+    </div>
+
+    <div class="event-item">
+      இரக்கத்தின் ஆண்டவர் மாதம் - ஜுன்
+    </div>
+
+    <div class="event-item">
+      பங்கு உதயமான மாதம் - ஆகஸ்ட் 4
+    </div>
+
+    <div class="event-item">
+      மாதா பிறந்தநாள் - செப்டம்பர் 8
+    </div>
+
+    <div class="event-item">
+      ஜெபமாலை மாதம் - அக்டோபர்
+    </div>
+
+    <div class="event-item">
+      புனித சவேரியார் கொடியேற்றம் - நவம்பர் 25
+    </div>
+
+    <div class="event-item">
+      அன்னதானப் பெருவிழா, கிறிஸ்மஸ் பெருவிழா - டிசம்பர்-3,25
 
   </div>
 
