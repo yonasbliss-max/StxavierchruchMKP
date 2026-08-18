@@ -188,22 +188,55 @@ body{
   background:rgba(255,255,255,0.15);
 }
 
-  .priest-toggle{
-  font-size:10px;
+/* PRIEST ARROW DROPDOWN */
+
+.priest-dropdown{
+  position:relative;
+  display:inline-block;
+  margin-left:12px;
 }
 
-.priest-arrow{
-  font-size:8px;
+.priest-arrow-btn{
+  background:transparent;
+  border:none;
+  color:white;
+  font-size:12px;
+  cursor:pointer;
+  padding:5px;
 }
 
-.priest-menu{
-  min-width:180px;
-  padding:7px 8px;
+.priest-arrow-btn span{
+  margin:0;
+}
+
+.priest-info{
+  display:none;
+  position:absolute;
+  top:35px;
+  right:0;
+  width:220px;
+  padding:10px;
+  background:rgba(20,20,20,0.96);
+  border-radius:10px;
+  text-align:center;
+  z-index:2000;
+  box-shadow:0 5px 20px rgba(0,0,0,0.5);
+  line-height:1.5;
+}
+
+.priest-info.show{
+  display:block;
+}
+
+.priest-info .church-name{
+  color:white;
+  font-size:12px;
+  font-weight:600;
+}
+
+.priest-info .church-location{
+  color:#ffd700;
   font-size:11px;
-}
-
-.priest-menu .church-location{
-  font-size:10px;
 }
 
 /* HERO */
@@ -474,17 +507,21 @@ body{
   home
 </span>
 
-<div class="priest-dropdown" id="priestDropdown">
 
-  <span class="priest-toggle" onclick="togglePriestDropdown(event)">
 
-    பங்குத்தந்தை:- அருட்பணி.லாரன்ஸ் CSC
+</div>
 
-    <span class="priest-arrow">▼</span>
+    <button class="home-btn" onclick="scrollToSection('home')">
+  🏠 Home
+    </button>
 
-  </span>
+  <div class="priest-dropdown">
 
-  <div class="priest-menu">
+  <button class="priest-arrow-btn" onclick="togglePriestInfo(event)">
+    ▼
+  </button>
+
+  <div class="priest-info" id="priestInfo">
 
     <div class="church-name">
       புனித சவேரியார் ஆலயம்
@@ -500,11 +537,7 @@ body{
 
   </div>
 
-</div>
-
-    <button class="home-btn" onclick="scrollToSection('home')">
-  🏠 Home
-    </button>
+  </div>
 
   </div>
 
@@ -1050,21 +1083,21 @@ body{
 
 <script>
 
-  function togglePriestDropdown(event){
+  function togglePriestInfo(event){
 
   event.stopPropagation();
 
   document
-    .getElementById('priestDropdown')
-    .classList.toggle('open');
+    .getElementById("priestInfo")
+    .classList.toggle("show");
 
 }
 
-document.addEventListener('click', function(){
+document.addEventListener("click", function(){
 
   document
-    .getElementById('priestDropdown')
-    .classList.remove('open');
+    .getElementById("priestInfo")
+    .classList.remove("show");
 
 });
 
