@@ -2287,10 +2287,54 @@ main{
     }
 }
 
+      .church-gallery {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.church-gallery h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 260px;
+    display: block;
+    object-fit: cover;
+}
+
+@media (max-width: 700px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .gallery img {
+        height: 180px;
+    }
+}
+
 </style>
 </head>
 
 <body>
+
+      
 
       
      
@@ -2892,6 +2936,113 @@ main{
      GALLERY
 ===================================================== -->
 
+     <section class="church-gallery">
+
+    <h2>St. Xavier's Church Melakovilpatti Photos</h2>
+
+    <div class="gallery">
+
+        <figure>
+            <img
+                src="images/file_0000000036e4720b85edc3ab65d62517.png"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/file_00000000198472089e19ccb27de44b36.png"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/file_000000000cec71faa54ce781b6638e37.png"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/file_00000000d9587208b65e73dfe0f83b9d.png"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/file_00000000b908820ba3906475297b149d.png"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/file_000000008d6071f8994d9babcf62fe26.png"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/Picsart_26-04-04_21-31-20-400.jpg"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/Picsart_26-05-01_22-08-09-682.jpg"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/Picsart_26-05-11_08-59-05-401.jpg"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/Picsart_26-05-11_09-00-21-777.jpg"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/Picsart_26-06-05_09-22-00-674.jpg"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+        <figure>
+            <img
+                src="images/Picsart_26-08-17_15-20-59-644.jpg"
+                alt="St Xavier's Church Melakovilpatti"
+                title="St Xavier's Church Melakovilpatti"
+                loading="lazy">
+        </figure>
+
+    </div>
+
+     </section>
+
+      
 <section
     id="gallery"
     class="section"
@@ -2909,68 +3060,9 @@ main{
 
     </div>
 
+      
 
-    <div class="gallery">
-
-          <div class="gallery-grid">
-
-    <div class="gallery-item">
-        <img
-            src="Picsart_26-04-04_21-31-20-400.jpg"
-            alt="St Xavier's Church Melakovilpatti"
-            loading="lazy"
-        >
-    </div>
-
-    <div class="gallery-item">
-        <img
-            src="Picsart_26-05-01_22-08-09-682.jpg"
-            alt="St Xavier's Church Melakovilpatti Church"
-            loading="lazy"
-        >
-    </div>
-
-    <div class="gallery-item">
-        <img
-            src="Picsart_26-05-11_08-59-05-401.jpg"
-            alt="St Xavier's Church Melakovilpatti"
-            loading="lazy"
-        >
-    </div>
-
-    <div class="gallery-item">
-        <img
-            src="Picsart_26-05-11_09-00-21-777.jpg"
-            alt="St Xavier's Church Melakovilpatti"
-            loading="lazy"
-        >
-    </div>
-
-    <div class="gallery-item">
-        <img
-            src="Picsart_26-06-05_09-22-00-674.jpg"
-            alt="St Xavier's Church Melakovilpatti"
-            loading="lazy"
-        >
-    </div>
-
-    <div class="gallery-item">
-        <img
-            src="Picsart_26-08-17_15-20-59-644.jpg"
-            alt="St Xavier's Church Melakovilpatti"
-            loading="lazy"
-        >
-    </div>
-
-<div class="gallery-item">
-        <img
-            src="IMG_20260729_001642_885.png"
-            alt="St Xavier's Church Melakovilpatti"
-            loading="lazy"
-        >
-    </div>
-
-          </div>
+    
 
 
         <div class="gallery-item">
