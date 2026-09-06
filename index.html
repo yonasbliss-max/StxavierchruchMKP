@@ -73,6 +73,198 @@ rel="stylesheet">
 
 <style>
 
+      /* =========================================
+   GOOGLE STREET VIEW 360° FLOATING BUTTON
+   ========================================= */
+
+.streetview-360-btn {
+    position: fixed;
+    left: 18px;
+    bottom: 22px;
+
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    z-index: 9998;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 20, 147, 0.95),
+            rgba(120, 0, 70, 0.95)
+        );
+
+    border: 2px solid rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        0 0 12px rgba(255, 20, 147, 0.7),
+        0 0 30px rgba(255, 20, 147, 0.35),
+        inset 0 0 15px rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* 360 ICON */
+
+.streetview-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    letter-spacing: -0.5px;
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* HOVER */
+
+.streetview-360-btn:hover {
+    transform: scale(1.12);
+
+    box-shadow:
+        0 0 18px rgba(255, 20, 147, 0.95),
+        0 0 45px rgba(255, 20, 147, 0.55),
+        inset 0 0 18px rgba(255, 255, 255, 0.2);
+}
+
+/* CLICK */
+
+.streetview-360-btn:active {
+    transform: scale(0.94);
+}
+
+/* TEXT */
+
+.streetview-text {
+    position: absolute;
+
+    left: 72px;
+
+    padding: 8px 13px;
+
+    white-space: nowrap;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    border-radius: 20px;
+
+    background: rgba(45, 0, 30, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(-8px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+/* SHOW TEXT ON HOVER */
+
+.streetview-360-btn:hover .streetview-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* PULSE EFFECT */
+
+.streetview-360-btn::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -6px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 20, 147, 0.55);
+
+    animation: streetViewPulse 2s infinite;
+}
+
+@keyframes streetViewPulse {
+
+    0% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+
+    70% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .streetview-360-btn {
+        left: 14px;
+        bottom: 18px;
+
+        width: 58px;
+        height: 58px;
+    }
+
+    .streetview-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 12px;
+    }
+
+    .streetview-text {
+        left: 66px;
+        font-size: 12px;
+    }
+}
+
 /* =====================================================
    RESET
 ===================================================== */
@@ -2063,6 +2255,10 @@ main{
 
 <body>
 
+      
+     
+     
+
 <!-- =====================================================
      FLOATING BUBBLES
 ===================================================== -->
@@ -2208,7 +2404,8 @@ main{
             class="priest-btn"
             onclick="togglePriestInfo(event)"
         >
-            ✦ பங்குத்தந்தை
+            ✦ பங்குத்தந்தை 
+              அருட்பணி.லாரன்ஸ் csc
         </button>
 
 
@@ -2226,7 +2423,7 @@ main{
             </div>
 
             <div class="church-name">
-                மேலகோவில்பட்டி பங்கு
+                மேலக்கோவில்பட்டி பங்கு
             </div>
 
             <div class="church-location">
@@ -2366,7 +2563,7 @@ main{
 
 
         <h2>
-            மேலநகர் • மேலக்கோவில்பட்டி
+            மேலைநகர் • மேலக்கோவில்பட்டி
         </h2>
 
 
@@ -2500,7 +2697,7 @@ main{
             </div>
 
             <h3>
-                திருத்தலப் பெயர்
+                ஊரின் ஆன்மீகப் பெயர் 
             </h3>
 
             <p>
@@ -3395,12 +3592,12 @@ main{
     <br>
 
     Website created by
-    <strong>Yonas</strong>
+    <strong>Yonas website company</strong>
 
     <br>
 
     இணையதள உருவாக்குநர்:
-    <strong>Yonas</strong>
+    <strong>Yonas website company</strong>
 
 </footer>
 
@@ -3728,6 +3925,18 @@ imageObserver.observe(
 );
 
 </script>
+
+      <!-- GOOGLE STREET VIEW 360 BUTTON -->
+<a
+  href="https://maps.app.goo.gl/AkzPb6gBgBLjdSbx9"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="streetview-360-btn"
+  aria-label="Open Church 360° Street View"
+>
+  <span class="streetview-icon">360°</span>
+  <span class="streetview-text">360° View</span>
+</a>
 
 
 </body>
