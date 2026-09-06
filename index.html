@@ -306,15 +306,24 @@ body::after{
     position:relative;
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
+.hero{
+    min-height:100vh;
+    padding:190px 20px 80px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
 
     background:
-        radial-gradient(circle at center,transparent 10%,rgba(0,0,0,.5) 100%);
+        linear-gradient(
+            rgba(0,0,0,.08),
+            rgba(0,0,0,.18)
+        ),
+        url('menu3.png') center/cover no-repeat;
 
-    pointer-events:none;
+    position:relative;
 }
 
 .hero-card{
@@ -1324,6 +1333,8 @@ nav.bottom{
     <h2>புகைப்படங்கள்</h2>
 
     <div class="gallery">
+       
+        <img src="logod.png" onclick="openImg(this.src)">
 
         <img src="IMG-20260817-WA0006.jpg" onclick="openImg(this.src)">
         <img src="IMG-20260817-WA0012.jpg" onclick="openImg(this.src)">
