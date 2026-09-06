@@ -834,6 +834,43 @@ main{
    HERO
 ===================================================== */
 
+      .hero-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Background image inside the box */
+.hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("chruchinside.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.12;
+
+    z-index: -2;
+}
+
+/* Pink glass overlay */
+.hero-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 0, 140, 0.35),
+        rgba(80, 0, 50, 0.55)
+    );
+
+    z-index: -1;
+}
+
 .hero{
     min-height:100vh;
 
