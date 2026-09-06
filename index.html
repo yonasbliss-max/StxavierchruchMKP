@@ -13,14 +13,13 @@
 <style>
 :root{
     --rose:#ff1493;
-    --rose2:#ff4db8;
+    --rose2:#ff3eae;
     --rose3:#ff007f;
-    --pink:#ff69c7;
-    --white:#fff;
+    --pink:#ff8bd2;
+    --white:#ffffff;
+    --muted:#dec7d7;
     --glass:rgba(255,255,255,.09);
-    --glass2:rgba(255,255,255,.14);
-    --border:rgba(255,255,255,.22);
-    --shadow:0 25px 80px rgba(255,20,147,.22);
+    --border:rgba(255,255,255,.20);
 }
 
 *{
@@ -37,34 +36,12 @@ html{
 body{
     font-family:"Noto Sans Tamil",sans-serif;
     background:
-        radial-gradient(circle at 15% 10%,rgba(255,20,147,.25),transparent 28%),
-        radial-gradient(circle at 85% 25%,rgba(255,0,127,.2),transparent 25%),
-        radial-gradient(circle at 50% 90%,rgba(255,105,199,.16),transparent 30%),
-        #050005;
+        radial-gradient(circle at 10% 5%,rgba(255,20,147,.22),transparent 28%),
+        radial-gradient(circle at 90% 20%,rgba(255,0,127,.18),transparent 28%),
+        radial-gradient(circle at 50% 100%,rgba(255,105,199,.13),transparent 30%),
+        #040004;
     color:#fff;
     overflow-x:hidden;
-}
-
-/* =========================
-   BACKGROUND LIGHT
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:-30%;
-    background:
-        radial-gradient(circle,rgba(255,20,147,.10),transparent 20%),
-        radial-gradient(circle,rgba(255,105,199,.08),transparent 18%);
-    animation:aurora 14s ease-in-out infinite alternate;
-    pointer-events:none;
-    z-index:-5;
-}
-
-@keyframes aurora{
-    0%{transform:translate(-8%,-5%) rotate(0deg) scale(1);}
-    50%{transform:translate(8%,7%) rotate(12deg) scale(1.1);}
-    100%{transform:translate(-4%,12%) rotate(-10deg) scale(1.05);}
 }
 
 /* =========================
@@ -81,19 +58,19 @@ body::before{
 
 .bubble{
     position:absolute;
-    bottom:-120px;
+    bottom:-150px;
+    left:var(--left);
     width:var(--size);
     height:var(--size);
-    left:var(--left);
     border-radius:50%;
     border:1px solid rgba(255,255,255,.30);
     background:
-        radial-gradient(circle at 30% 25%,rgba(255,255,255,.8),transparent 8%),
-        radial-gradient(circle at 70% 75%,rgba(255,20,147,.20),transparent 45%),
+        radial-gradient(circle at 28% 22%,rgba(255,255,255,.85),transparent 7%),
+        radial-gradient(circle at 70% 70%,rgba(255,20,147,.20),transparent 50%),
         rgba(255,255,255,.035);
     box-shadow:
-        inset 0 0 20px rgba(255,255,255,.12),
-        0 0 25px rgba(255,20,147,.13);
+        inset 0 0 22px rgba(255,255,255,.14),
+        0 0 30px rgba(255,20,147,.18);
     backdrop-filter:blur(3px);
     animation:floatBubble var(--duration) linear infinite;
     animation-delay:var(--delay);
@@ -101,15 +78,20 @@ body::before{
 
 @keyframes floatBubble{
     0%{
-        transform:translate3d(0,0,0) scale(.7);
+        transform:translate3d(0,0,0) scale(.65);
         opacity:0;
     }
-    10%{opacity:.55;}
+
+    12%{
+        opacity:.55;
+    }
+
     50%{
         transform:translate3d(var(--move),-55vh,0) scale(1);
     }
+
     100%{
-        transform:translate3d(calc(var(--move) * -1),-120vh,0) scale(1.25);
+        transform:translate3d(calc(var(--move) * -1),-125vh,0) scale(1.25);
         opacity:0;
     }
 }
@@ -123,90 +105,128 @@ body::before{
     top:14px;
     left:50%;
     transform:translateX(-50%);
-    width:min(1180px,calc(100% - 28px));
-    height:74px;
-    padding:8px 12px;
+    width:min(1320px,calc(100% - 28px));
+    min-height:82px;
+    padding:9px 13px;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:15px;
     border:1px solid rgba(255,255,255,.20);
-    background:rgba(12,0,9,.65);
-    backdrop-filter:blur(28px) saturate(180%);
-    -webkit-backdrop-filter:blur(28px) saturate(180%);
-    border-radius:28px;
+    background:rgba(10,0,8,.68);
+    backdrop-filter:blur(30px) saturate(180%);
+    -webkit-backdrop-filter:blur(30px) saturate(180%);
+    border-radius:30px;
     box-shadow:
-        0 20px 70px rgba(0,0,0,.45),
-        0 0 45px rgba(255,20,147,.12),
-        inset 0 1px rgba(255,255,255,.15);
+        0 20px 80px rgba(0,0,0,.50),
+        0 0 50px rgba(255,20,147,.15),
+        inset 0 1px rgba(255,255,255,.18);
     z-index:1000;
 }
 
 .logo-area{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:13px;
     min-width:0;
 }
 
 .logo{
-    width:54px;
-    height:54px;
+    width:60px;
+    height:60px;
     object-fit:contain;
-    border-radius:17px;
+    border-radius:18px;
     filter:
-        drop-shadow(0 0 12px rgba(255,20,147,.7))
-        drop-shadow(0 0 25px rgba(255,20,147,.35));
+        drop-shadow(0 0 13px rgba(255,20,147,.8))
+        drop-shadow(0 0 30px rgba(255,20,147,.35));
 }
 
 .logo-text{
-    line-height:1.1;
+    line-height:1.2;
     white-space:nowrap;
 }
 
 .logo-text strong{
     display:block;
-    font-size:14px;
+    font-size:16px;
     font-weight:900;
-    color:#fff;
 }
 
 .logo-text span{
     display:block;
-    font-size:10px;
-    color:#ff8bd0;
     margin-top:4px;
+    font-size:11px;
+    color:#ff8ed2;
+    font-weight:600;
 }
+
+/* NAV LINKS */
 
 .nav-actions{
     display:flex;
     align-items:center;
-    gap:7px;
+    justify-content:flex-end;
+    gap:8px;
 }
 
 .nav-btn{
-    width:48px;
-    height:48px;
-    border:1px solid rgba(255,255,255,.14);
-    border-radius:16px;
-    background:rgba(255,255,255,.06);
+    height:51px;
+    min-width:51px;
+    padding:0 13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:17px;
+    background:rgba(255,255,255,.065);
     color:#fff;
-    display:grid;
-    place-items:center;
+    font-family:inherit;
+    font-size:15px;
+    font-weight:800;
     cursor:pointer;
-    transition:.3s;
-    font-size:18px;
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+    white-space:nowrap;
 }
 
 .nav-btn:hover{
-    transform:translateY(-3px);
-    background:rgba(255,20,147,.20);
+    transform:translateY(-4px);
+    background:rgba(255,20,147,.16);
     border-color:rgba(255,20,147,.55);
-    box-shadow:0 0 25px rgba(255,20,147,.3);
+    box-shadow:
+        0 12px 30px rgba(255,20,147,.18),
+        0 0 20px rgba(255,20,147,.15);
+}
+
+.nav-icon{
+    font-size:20px;
+    line-height:1;
 }
 
 .nav-btn.home{
+    min-width:53px;
     background:linear-gradient(135deg,#ff1493,#ff007f);
-    box-shadow:0 0 25px rgba(255,20,147,.4);
+    border-color:transparent;
+    box-shadow:
+        0 10px 30px rgba(255,20,147,.38),
+        inset 0 1px rgba(255,255,255,.35);
+}
+
+/* PRIEST NAV BUTTON */
+
+.priest-nav{
+    padding:0 18px;
+    background:rgba(255,20,147,.10);
+    border-color:rgba(255,20,147,.30);
+    color:#ffd1ec;
+}
+
+.priest-nav .nav-icon{
+    font-size:17px;
 }
 
 /* =========================
@@ -215,30 +235,30 @@ body::before{
 
 .event-wrap{
     position:fixed;
-    top:101px;
+    top:111px;
     left:50%;
     transform:translateX(-50%);
-    width:min(1180px,calc(100% - 28px));
+    width:min(1320px,calc(100% - 28px));
     overflow:hidden;
-    border-radius:17px;
-    border:1px solid rgba(255,20,147,.25);
-    background:rgba(255,20,147,.07);
-    backdrop-filter:blur(20px);
+    border-radius:18px;
+    border:1px solid rgba(255,20,147,.27);
+    background:rgba(255,20,147,.075);
+    backdrop-filter:blur(22px);
     z-index:900;
 }
 
 .event-track{
     display:flex;
     width:max-content;
-    animation:eventScroll 35s linear infinite;
+    animation:eventScroll 38s linear infinite;
 }
 
 .event-item{
-    padding:10px 30px;
+    padding:11px 32px;
     white-space:nowrap;
-    font-size:12px;
+    font-size:13px;
     font-weight:700;
-    color:#ffd3ed;
+    color:#ffd2ed;
     border-right:1px solid rgba(255,255,255,.10);
 }
 
@@ -253,7 +273,7 @@ body::before{
 
 .hero{
     min-height:100vh;
-    padding:185px 22px 70px;
+    padding:195px 20px 80px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -262,112 +282,113 @@ body::before{
 }
 
 .hero-card{
-    width:min(1180px,100%);
-    min-height:650px;
+    width:min(1320px,100%);
+    min-height:700px;
     position:relative;
     overflow:hidden;
-    border-radius:46px;
-    border:1px solid rgba(255,255,255,.20);
+    border-radius:48px;
+    border:1px solid rgba(255,255,255,.21);
     background:
-        linear-gradient(145deg,
-            rgba(255,255,255,.13),
-            rgba(255,20,147,.055) 45%,
-            rgba(255,255,255,.025));
-    backdrop-filter:blur(25px) saturate(160%);
-    -webkit-backdrop-filter:blur(25px) saturate(160%);
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.12),
+            rgba(255,20,147,.055) 48%,
+            rgba(255,255,255,.025)
+        );
+    backdrop-filter:blur(28px) saturate(170%);
+    -webkit-backdrop-filter:blur(28px) saturate(170%);
     box-shadow:
         0 45px 120px rgba(0,0,0,.55),
-        0 0 80px rgba(255,20,147,.15),
+        0 0 90px rgba(255,20,147,.15),
         inset 0 1px rgba(255,255,255,.20);
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    isolation:isolate;
 }
 
 .hero-card::before{
     content:"";
     position:absolute;
-    width:500px;
-    height:500px;
+    width:550px;
+    height:550px;
     border-radius:50%;
-    background:rgba(255,20,147,.18);
-    filter:blur(100px);
-    top:-250px;
+    background:rgba(255,20,147,.20);
+    filter:blur(110px);
+    top:-280px;
     left:-180px;
-    z-index:-1;
 }
 
 .hero-card::after{
     content:"";
     position:absolute;
-    width:450px;
-    height:450px;
+    width:500px;
+    height:500px;
     border-radius:50%;
-    background:rgba(255,105,199,.13);
-    filter:blur(100px);
-    bottom:-250px;
-    right:-160px;
-    z-index:-1;
+    background:rgba(255,105,199,.14);
+    filter:blur(110px);
+    bottom:-280px;
+    right:-180px;
 }
 
 .hero-content{
-    max-width:850px;
-    padding:50px 25px;
+    max-width:950px;
+    padding:60px 25px;
+    position:relative;
+    z-index:2;
 }
 
 .hero-logo{
-    width:130px;
-    height:130px;
+    width:145px;
+    height:145px;
     object-fit:contain;
-    border-radius:38px;
-    margin-bottom:25px;
+    border-radius:42px;
+    margin-bottom:28px;
     filter:
-        drop-shadow(0 0 18px rgba(255,20,147,.8))
-        drop-shadow(0 0 45px rgba(255,20,147,.35));
+        drop-shadow(0 0 20px rgba(255,20,147,.85))
+        drop-shadow(0 0 50px rgba(255,20,147,.40));
     animation:logoFloat 4s ease-in-out infinite;
 }
 
 @keyframes logoFloat{
     0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
+    50%{transform:translateY(-11px);}
 }
 
 .badge{
     display:inline-flex;
     align-items:center;
-    gap:8px;
-    padding:9px 16px;
-    border:1px solid rgba(255,20,147,.35);
+    gap:9px;
+    padding:10px 18px;
+    border:1px solid rgba(255,20,147,.36);
     background:rgba(255,20,147,.10);
     border-radius:100px;
-    font-size:11px;
+    font-size:13px;
     font-weight:800;
-    color:#ff9ed7;
+    color:#ffaddd;
     box-shadow:0 0 30px rgba(255,20,147,.10);
-    margin-bottom:20px;
+    margin-bottom:23px;
 }
 
 .badge i{
-    width:7px;
-    height:7px;
+    width:8px;
+    height:8px;
     border-radius:50%;
     background:#ff1493;
-    box-shadow:0 0 15px #ff1493;
+    box-shadow:0 0 16px #ff1493;
 }
 
 .hero h1{
-    font-size:clamp(38px,7vw,82px);
+    font-size:clamp(45px,7vw,88px);
     line-height:1.05;
     font-weight:900;
     letter-spacing:-3px;
     background:linear-gradient(
         100deg,
-        #fff 15%,
-        #ffb9e3 42%,
-        #ff1493 72%,
-        #fff 95%
+        #fff 10%,
+        #ffc4e8 38%,
+        #ff1493 65%,
+        #fff 92%
     );
     -webkit-background-clip:text;
     color:transparent;
@@ -376,41 +397,43 @@ body::before{
 }
 
 @keyframes textShine{
-    to{background-position:200% center;}
+    to{
+        background-position:200% center;
+    }
 }
 
 .hero h2{
-    margin-top:14px;
-    font-size:clamp(19px,3vw,30px);
+    margin-top:17px;
+    font-size:clamp(21px,3vw,32px);
     color:#fff;
     font-weight:800;
 }
 
 .hero p{
-    margin:20px auto 0;
-    max-width:700px;
-    color:#e8cfe0;
-    font-size:15px;
+    margin:22px auto 0;
+    max-width:780px;
+    color:#ead7e3;
+    font-size:16px;
     line-height:2;
 }
 
 .hero-buttons{
-    margin-top:35px;
+    margin-top:40px;
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:12px;
+    gap:13px;
 }
 
 .hero-btn{
-    min-height:52px;
-    padding:0 21px;
-    border-radius:18px;
-    border:1px solid rgba(255,255,255,.15);
+    min-height:56px;
+    padding:0 23px;
+    border-radius:19px;
+    border:1px solid rgba(255,255,255,.16);
     background:rgba(255,255,255,.07);
     color:#fff;
     font-family:inherit;
-    font-size:13px;
+    font-size:14px;
     font-weight:800;
     cursor:pointer;
     transition:.35s;
@@ -418,70 +441,71 @@ body::before{
 }
 
 .hero-btn:hover{
-    transform:translateY(-5px) scale(1.02);
+    transform:translateY(-5px) scale(1.025);
     border-color:#ff1493;
     background:rgba(255,20,147,.18);
-    box-shadow:0 15px 35px rgba(255,20,147,.22);
+    box-shadow:0 15px 40px rgba(255,20,147,.22);
 }
 
 .hero-btn.primary{
     background:linear-gradient(135deg,#ff1493,#ff007f);
     border-color:transparent;
     box-shadow:
-        0 12px 35px rgba(255,20,147,.35),
+        0 13px 38px rgba(255,20,147,.38),
         inset 0 1px rgba(255,255,255,.3);
 }
 
 /* =========================
-   SECTION
+   SECTIONS
 ========================= */
 
 section{
-    width:min(1180px,calc(100% - 28px));
+    width:min(1320px,calc(100% - 28px));
     margin:0 auto;
-    padding:70px 0;
+    padding:85px 0;
     position:relative;
     z-index:2;
 }
 
 .section-head{
     text-align:center;
-    margin-bottom:35px;
+    margin-bottom:42px;
 }
 
 .section-kicker{
-    color:#ff63be;
-    font-size:11px;
+    color:#ff68c0;
+    font-size:12px;
     font-weight:900;
     letter-spacing:2px;
-    text-transform:uppercase;
 }
 
 .section-head h2{
-    margin-top:8px;
-    font-size:clamp(28px,5vw,48px);
+    margin-top:9px;
+    font-size:clamp(32px,5vw,53px);
     font-weight:900;
 }
 
 .section-head p{
-    margin-top:8px;
-    color:#cdaec1;
-    font-size:13px;
+    margin-top:9px;
+    color:#cdb3c4;
+    font-size:14px;
 }
 
 /* =========================
-   GLASS CARD
+   GLASS
 ========================= */
 
 .glass-card{
-    border:1px solid rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.16);
     background:
-        linear-gradient(145deg,
+        linear-gradient(
+            145deg,
             rgba(255,255,255,.095),
-            rgba(255,20,147,.035));
-    border-radius:32px;
-    backdrop-filter:blur(25px) saturate(150%);
-    -webkit-backdrop-filter:blur(25px) saturate(150%);
+            rgba(255,20,147,.035)
+        );
+    border-radius:34px;
+    backdrop-filter:blur(27px) saturate(150%);
+    -webkit-backdrop-filter:blur(27px) saturate(150%);
     box-shadow:
         0 25px 80px rgba(0,0,0,.30),
         inset 0 1px rgba(255,255,255,.12);
@@ -494,12 +518,12 @@ section{
 .info-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
+    gap:17px;
 }
 
 .info-card{
-    min-height:170px;
-    padding:24px;
+    min-height:190px;
+    padding:27px;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -511,43 +535,43 @@ section{
 .info-card::before{
     content:"";
     position:absolute;
-    width:100px;
-    height:100px;
+    width:130px;
+    height:130px;
     background:#ff1493;
-    filter:blur(65px);
-    opacity:.15;
-    right:-30px;
-    top:-30px;
+    filter:blur(70px);
+    opacity:.14;
+    right:-40px;
+    top:-40px;
 }
 
 .info-card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(255,20,147,.4);
-    box-shadow:0 25px 55px rgba(255,20,147,.13);
+    transform:translateY(-9px);
+    border-color:rgba(255,20,147,.42);
+    box-shadow:0 28px 65px rgba(255,20,147,.14);
 }
 
 .info-icon{
-    width:46px;
-    height:46px;
+    width:52px;
+    height:52px;
     display:grid;
     place-items:center;
-    border-radius:15px;
+    border-radius:17px;
     background:rgba(255,20,147,.13);
     border:1px solid rgba(255,20,147,.25);
-    color:#ff63be;
-    font-size:20px;
+    color:#ff70c4;
+    font-size:23px;
 }
 
 .info-card h3{
-    margin-top:15px;
-    font-size:14px;
+    margin-top:17px;
+    font-size:15px;
 }
 
 .info-card p{
-    margin-top:5px;
-    color:#c8aec0;
-    font-size:11px;
-    line-height:1.8;
+    margin-top:6px;
+    color:#cdb6c6;
+    font-size:12px;
+    line-height:1.9;
 }
 
 /* =========================
@@ -555,7 +579,7 @@ section{
 ========================= */
 
 .history-card{
-    padding:35px;
+    padding:42px;
     position:relative;
     overflow:hidden;
 }
@@ -565,16 +589,16 @@ section{
     position:absolute;
     left:0;
     top:0;
-    width:4px;
+    width:5px;
     height:100%;
     background:linear-gradient(#ff1493,#ff8ed0,#ff1493);
-    box-shadow:0 0 25px #ff1493;
+    box-shadow:0 0 28px #ff1493;
 }
 
 .history-card p{
-    color:#ead7e3;
-    font-size:14px;
-    line-height:2.25;
+    color:#ead8e3;
+    font-size:15px;
+    line-height:2.35;
     text-align:justify;
 }
 
@@ -585,14 +609,14 @@ section{
 .gallery{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:12px;
+    gap:15px;
 }
 
 .gallery-item{
-    height:250px;
+    height:280px;
     overflow:hidden;
-    border-radius:24px;
-    border:1px solid rgba(255,255,255,.13);
+    border-radius:26px;
+    border:1px solid rgba(255,255,255,.14);
     position:relative;
     cursor:pointer;
     background:#100009;
@@ -602,7 +626,7 @@ section{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.6s cubic-bezier(.2,.8,.2,1);
+    transition:.65s cubic-bezier(.2,.8,.2,1);
 }
 
 .gallery-item::after{
@@ -611,16 +635,16 @@ section{
     inset:0;
     display:grid;
     place-items:center;
-    font-size:35px;
-    color:white;
+    font-size:42px;
+    color:#fff;
     background:rgba(255,20,147,.20);
     opacity:0;
     transition:.3s;
-    backdrop-filter:blur(3px);
+    backdrop-filter:blur(4px);
 }
 
 .gallery-item:hover img{
-    transform:scale(1.1);
+    transform:scale(1.11);
 }
 
 .gallery-item:hover::after{
@@ -634,17 +658,17 @@ section{
 .groups{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
+    gap:17px;
 }
 
 .group{
-    padding:24px 18px;
-    min-height:120px;
+    padding:28px 20px;
+    min-height:135px;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    font-size:13px;
+    font-size:14px;
     font-weight:800;
     transition:.35s;
     position:relative;
@@ -654,18 +678,18 @@ section{
 .group::before{
     content:"";
     position:absolute;
-    width:70px;
-    height:70px;
+    width:90px;
+    height:90px;
     border-radius:50%;
     background:#ff1493;
-    filter:blur(40px);
+    filter:blur(45px);
     opacity:.13;
 }
 
 .group:hover{
-    transform:translateY(-7px) scale(1.02);
+    transform:translateY(-8px) scale(1.02);
     border-color:rgba(255,20,147,.5);
-    box-shadow:0 20px 45px rgba(255,20,147,.16);
+    box-shadow:0 22px 50px rgba(255,20,147,.17);
 }
 
 /* =========================
@@ -675,69 +699,73 @@ section{
 .mass-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:15px;
+    gap:18px;
 }
 
 .mass-card{
-    padding:30px 20px;
+    padding:36px 25px;
     text-align:center;
 }
 
 .mass-day{
     color:#ff65be;
-    font-size:13px;
+    font-size:15px;
     font-weight:900;
 }
 
 .mass-time{
-    margin-top:12px;
-    font-size:25px;
+    margin-top:13px;
+    font-size:29px;
     font-weight:900;
 }
 
 .mass-note{
-    margin-top:5px;
-    color:#bea5b6;
-    font-size:11px;
+    margin-top:6px;
+    color:#bea7b7;
+    font-size:12px;
 }
 
 /* =========================
-   PRIEST
+   PRIESTS
 ========================= */
 
 .priest-list{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:15px;
+    gap:18px;
 }
 
 .priest{
-    padding:27px 20px;
+    padding:33px 22px;
     text-align:center;
 }
 
 .priest .avatar{
-    width:62px;
-    height:62px;
+    width:70px;
+    height:70px;
     margin:auto;
     display:grid;
     place-items:center;
-    border-radius:22px;
-    background:linear-gradient(135deg,rgba(255,20,147,.25),rgba(255,255,255,.08));
+    border-radius:24px;
+    background:linear-gradient(
+        135deg,
+        rgba(255,20,147,.25),
+        rgba(255,255,255,.08)
+    );
     border:1px solid rgba(255,20,147,.3);
-    box-shadow:0 0 30px rgba(255,20,147,.15);
-    font-size:24px;
+    box-shadow:0 0 35px rgba(255,20,147,.16);
+    font-size:27px;
 }
 
 .priest h3{
-    margin-top:15px;
-    font-size:13px;
+    margin-top:17px;
+    font-size:14px;
 }
 
 .priest p{
-    margin-top:7px;
+    margin-top:8px;
     color:#c5aebe;
-    font-size:11px;
+    font-size:12px;
 }
 
 /* =========================
@@ -747,18 +775,18 @@ section{
 .contact-grid{
     display:grid;
     grid-template-columns:1.2fr .8fr;
-    gap:15px;
+    gap:18px;
 }
 
 .contact-card{
-    padding:30px;
+    padding:34px;
 }
 
 .contact-row{
     display:flex;
     align-items:flex-start;
-    gap:15px;
-    padding:16px 0;
+    gap:17px;
+    padding:19px 0;
     border-bottom:1px solid rgba(255,255,255,.08);
 }
 
@@ -767,41 +795,49 @@ section{
 }
 
 .contact-icon{
-    min-width:43px;
-    height:43px;
+    min-width:48px;
+    height:48px;
     display:grid;
     place-items:center;
-    border-radius:14px;
+    border-radius:16px;
     background:rgba(255,20,147,.12);
     border:1px solid rgba(255,20,147,.22);
     color:#ff62bd;
+    font-size:20px;
 }
 
 .contact-row strong{
     display:block;
-    font-size:12px;
+    font-size:14px;
 }
 
 .contact-row span{
     display:block;
     color:#c4adba;
-    font-size:11px;
-    margin-top:5px;
-    line-height:1.7;
+    font-size:12px;
+    margin-top:6px;
+    line-height:1.8;
 }
 
 .map-button{
-    margin-top:20px;
+    margin-top:24px;
     width:100%;
-    height:55px;
+    height:58px;
     border:0;
-    border-radius:18px;
+    border-radius:19px;
     color:#fff;
     background:linear-gradient(135deg,#ff1493,#ff007f);
     font-family:inherit;
+    font-size:14px;
     font-weight:900;
     cursor:pointer;
-    box-shadow:0 15px 35px rgba(255,20,147,.25);
+    box-shadow:0 16px 38px rgba(255,20,147,.27);
+    transition:.3s;
+}
+
+.map-button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 45px rgba(255,20,147,.38);
 }
 
 /* =========================
@@ -809,17 +845,17 @@ section{
 ========================= */
 
 footer{
-    width:min(1180px,calc(100% - 28px));
+    width:min(1320px,calc(100% - 28px));
     margin:50px auto 20px;
-    padding:28px;
-    border-radius:28px;
+    padding:34px;
+    border-radius:31px;
     text-align:center;
-    border:1px solid rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.13);
     background:rgba(255,255,255,.045);
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(22px);
     color:#bfa8b7;
-    font-size:11px;
-    line-height:2;
+    font-size:12px;
+    line-height:2.1;
 }
 
 footer strong{
@@ -827,14 +863,65 @@ footer strong{
 }
 
 /* =========================
-   IMAGE POPUP
+   PRIEST POPUP
+========================= */
+
+.priest-menu{
+    position:fixed;
+    right:max(20px,calc((100vw - 1320px)/2));
+    top:108px;
+    width:320px;
+    padding:23px;
+    border-radius:27px;
+    border:1px solid rgba(255,20,147,.32);
+    background:rgba(18,0,12,.88);
+    backdrop-filter:blur(32px);
+    -webkit-backdrop-filter:blur(32px);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.55),
+        0 0 35px rgba(255,20,147,.13);
+    z-index:2000;
+    display:none;
+}
+
+.priest-menu.active{
+    display:block;
+    animation:menuIn .25s ease;
+}
+
+@keyframes menuIn{
+    from{
+        opacity:0;
+        transform:translateY(-8px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.priest-menu h3{
+    font-size:16px;
+    color:#ff68bf;
+}
+
+.priest-menu p{
+    font-size:12px;
+    color:#d9c1d0;
+    margin-top:10px;
+    line-height:1.9;
+}
+
+/* =========================
+   IMAGE VIEWER
 ========================= */
 
 .viewer{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.82);
-    backdrop-filter:blur(25px);
+    background:rgba(0,0,0,.84);
+    backdrop-filter:blur(27px);
     display:none;
     align-items:center;
     justify-content:center;
@@ -849,139 +936,76 @@ footer strong{
 .viewer img{
     max-width:94vw;
     max-height:88vh;
-    border-radius:25px;
+    border-radius:27px;
     object-fit:contain;
     border:1px solid rgba(255,255,255,.18);
     box-shadow:
-        0 0 80px rgba(255,20,147,.25),
-        0 30px 100px rgba(0,0,0,.6);
+        0 0 90px rgba(255,20,147,.25),
+        0 30px 110px rgba(0,0,0,.65);
 }
 
 .close-viewer{
     position:absolute;
     top:20px;
     right:20px;
-    width:50px;
-    height:50px;
-    border-radius:17px;
+    width:53px;
+    height:53px;
+    border-radius:18px;
     border:1px solid rgba(255,255,255,.2);
     background:rgba(255,255,255,.1);
     color:#fff;
-    font-size:25px;
+    font-size:27px;
     cursor:pointer;
 }
 
 /* =========================
-   PRIEST MENU
-========================= */
-
-.priest-menu{
-    position:fixed;
-    right:25px;
-    top:94px;
-    width:290px;
-    padding:20px;
-    border-radius:25px;
-    border:1px solid rgba(255,20,147,.3);
-    background:rgba(18,0,12,.82);
-    backdrop-filter:blur(30px);
-    box-shadow:0 25px 70px rgba(0,0,0,.5);
-    z-index:2000;
-    display:none;
-}
-
-.priest-menu.active{
-    display:block;
-    animation:menuIn .25s ease;
-}
-
-@keyframes menuIn{
-    from{opacity:0;transform:translateY(-8px) scale(.97);}
-    to{opacity:1;transform:none;}
-}
-
-.priest-menu h3{
-    font-size:13px;
-    color:#ff68bf;
-}
-
-.priest-menu p{
-    font-size:11px;
-    color:#d9c1d0;
-    margin-top:9px;
-    line-height:1.8;
-}
-
-/* =========================
-   SCROLL TOP
+   TOP BUTTON
 ========================= */
 
 .top-btn{
     position:fixed;
-    right:18px;
-    bottom:18px;
-    width:52px;
-    height:52px;
-    border-radius:18px;
+    right:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    border-radius:19px;
     border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,20,147,.15);
-    color:white;
-    backdrop-filter:blur(20px);
+    background:rgba(255,20,147,.16);
+    color:#fff;
+    backdrop-filter:blur(22px);
     cursor:pointer;
     z-index:1000;
-    box-shadow:0 10px 35px rgba(255,20,147,.15);
+    font-size:20px;
+    box-shadow:0 12px 40px rgba(255,20,147,.17);
 }
 
 /* =========================
-   MOBILE
+   TABLET
 ========================= */
 
-@media(max-width:900px){
+@media(max-width:1100px){
 
     .navbar{
-        height:67px;
-        border-radius:23px;
-    }
-
-    .logo{
-        width:46px;
-        height:46px;
+        width:calc(100% - 22px);
     }
 
     .logo-text strong{
-        font-size:11px;
-    }
-
-    .logo-text span{
-        font-size:8px;
+        font-size:14px;
     }
 
     .nav-btn{
-        width:42px;
-        height:42px;
-        border-radius:14px;
-        font-size:15px;
+        min-width:45px;
+        height:47px;
+        padding:0 10px;
+        font-size:12px;
     }
 
-    .nav-actions .desktop-hide{
+    .nav-icon{
+        font-size:18px;
+    }
+
+    .nav-label{
         display:none;
-    }
-
-    .event-wrap{
-        top:91px;
-    }
-
-    .hero{
-        padding-top:160px;
-    }
-
-    .hero-card{
-        min-height:650px;
-        border-radius:34px;
-    }
-
-    .hero h1{
-        letter-spacing:-1.5px;
     }
 
     .info-grid{
@@ -989,32 +1013,32 @@ footer strong{
     }
 
     .gallery{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
     .groups{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .mass-grid{
-        grid-template-columns:1fr;
-    }
-
-    .priest-list{
-        grid-template-columns:1fr;
-    }
-
-    .contact-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(3,1fr);
     }
 }
 
-@media(max-width:520px){
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
 
     .navbar{
-        width:calc(100% - 18px);
         top:9px;
+        min-height:67px;
+        width:calc(100% - 16px);
         padding:7px 8px;
+        border-radius:23px;
+    }
+
+    .logo{
+        width:49px;
+        height:49px;
+        border-radius:15px;
     }
 
     .logo-area{
@@ -1022,12 +1046,18 @@ footer strong{
     }
 
     .logo-text{
-        max-width:125px;
+        max-width:140px;
+        white-space:normal;
     }
 
     .logo-text strong{
-        white-space:normal;
-        line-height:1.2;
+        font-size:11px;
+        line-height:1.25;
+    }
+
+    .logo-text span{
+        font-size:8px;
+        margin-top:3px;
     }
 
     .nav-actions{
@@ -1035,13 +1065,34 @@ footer strong{
     }
 
     .nav-btn{
-        width:39px;
-        height:39px;
+        width:41px;
+        min-width:41px;
+        height:41px;
+        padding:0;
         border-radius:13px;
     }
 
+    .nav-icon{
+        font-size:17px;
+    }
+
+    .nav-label{
+        display:none;
+    }
+
+    .priest-nav{
+        width:auto;
+        min-width:75px;
+        padding:0 10px;
+        font-size:10px;
+    }
+
+    .priest-nav .nav-icon{
+        font-size:14px;
+    }
+
     .event-wrap{
-        width:calc(100% - 18px);
+        width:calc(100% - 16px);
         top:84px;
     }
 
@@ -1051,8 +1102,7 @@ footer strong{
     }
 
     .hero{
-        width:100%;
-        padding:145px 12px 45px;
+        padding:145px 10px 50px;
     }
 
     .hero-card{
@@ -1061,17 +1111,23 @@ footer strong{
     }
 
     .hero-content{
-        padding:35px 17px;
+        padding:40px 15px;
     }
 
     .hero-logo{
-        width:105px;
-        height:105px;
-        border-radius:30px;
+        width:110px;
+        height:110px;
+        border-radius:31px;
+    }
+
+    .badge{
+        font-size:10px;
+        padding:8px 13px;
     }
 
     .hero h1{
         font-size:42px;
+        letter-spacing:-1.5px;
     }
 
     .hero h2{
@@ -1086,25 +1142,30 @@ footer strong{
     .hero-buttons{
         display:grid;
         grid-template-columns:1fr 1fr;
+        gap:9px;
     }
 
     .hero-btn{
-        min-height:49px;
-        padding:0 8px;
+        min-height:51px;
+        padding:0 7px;
         font-size:10px;
     }
 
     section{
-        width:calc(100% - 18px);
-        padding:45px 0;
+        width:calc(100% - 16px);
+        padding:50px 0;
     }
 
     .section-head{
-        margin-bottom:23px;
+        margin-bottom:27px;
     }
 
     .section-head h2{
-        font-size:30px;
+        font-size:31px;
+    }
+
+    .section-head p{
+        font-size:11px;
     }
 
     .info-grid{
@@ -1113,9 +1174,16 @@ footer strong{
     }
 
     .info-card{
-        min-height:150px;
-        padding:17px;
+        min-height:160px;
+        padding:18px;
         border-radius:22px;
+    }
+
+    .info-icon{
+        width:43px;
+        height:43px;
+        border-radius:14px;
+        font-size:18px;
     }
 
     .info-card h3{
@@ -1127,13 +1195,13 @@ footer strong{
     }
 
     .history-card{
-        padding:23px 19px;
+        padding:25px 20px;
         border-radius:25px;
     }
 
     .history-card p{
         font-size:11px;
-        line-height:2.1;
+        line-height:2.15;
     }
 
     .gallery{
@@ -1142,20 +1210,44 @@ footer strong{
     }
 
     .gallery-item{
-        height:180px;
+        height:185px;
         border-radius:18px;
     }
 
     .groups{
         grid-template-columns:1fr 1fr;
-        gap:8px;
+        gap:9px;
     }
 
     .group{
-        min-height:100px;
-        padding:15px 9px;
+        min-height:105px;
+        padding:16px 9px;
         border-radius:20px;
         font-size:10px;
+    }
+
+    .mass-grid{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .mass-card{
+        padding:27px 20px;
+        border-radius:23px;
+    }
+
+    .priest-list{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .priest{
+        border-radius:24px;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:10px;
     }
 
     .contact-card{
@@ -1163,14 +1255,68 @@ footer strong{
         border-radius:24px;
     }
 
-    .priest{
-        border-radius:24px;
+    .contact-row strong{
+        font-size:12px;
+    }
+
+    .contact-row span{
+        font-size:10px;
     }
 
     .priest-menu{
-        right:9px;
-        top:80px;
-        width:calc(100% - 18px);
+        right:8px;
+        top:78px;
+        width:calc(100% - 16px);
+    }
+
+    footer{
+        width:calc(100% - 16px);
+        padding:25px;
+        border-radius:24px;
+        font-size:10px;
+    }
+}
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media(max-width:390px){
+
+    .logo-text{
+        display:none;
+    }
+
+    .nav-actions{
+        margin-left:auto;
+    }
+
+    .nav-btn{
+        width:38px;
+        min-width:38px;
+        height:38px;
+    }
+
+    .priest-nav{
+        min-width:68px;
+        padding:0 7px;
+        font-size:9px;
+    }
+
+    .hero h1{
+        font-size:37px;
+    }
+
+    .hero-buttons{
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr 1fr;
     }
 }
 
@@ -1179,6 +1325,7 @@ footer strong{
 ========================= */
 
 @media(prefers-reduced-motion:reduce){
+
     *,
     *::before,
     *::after{
@@ -1192,8 +1339,12 @@ footer strong{
 
 <body>
 
-<!-- BUBBLES -->
+<!-- =========================
+     BUBBLES
+========================= -->
+
 <div class="bubbles">
+
     <span class="bubble" style="--size:25px;--left:4%;--duration:17s;--delay:0s;--move:50px"></span>
     <span class="bubble" style="--size:48px;--left:12%;--duration:22s;--delay:3s;--move:-70px"></span>
     <span class="bubble" style="--size:18px;--left:21%;--duration:14s;--delay:1s;--move:40px"></span>
@@ -1206,120 +1357,272 @@ footer strong{
     <span class="bubble" style="--size:22px;--left:81%;--duration:15s;--delay:1s;--move:-65px"></span>
     <span class="bubble" style="--size:44px;--left:90%;--duration:21s;--delay:9s;--move:55px"></span>
     <span class="bubble" style="--size:15px;--left:96%;--duration:12s;--delay:4s;--move:-40px"></span>
+
 </div>
 
-<!-- NAVBAR -->
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <nav class="navbar">
 
     <div class="logo-area">
-        <img src="logod.png" class="logo" alt="புனித சவேரியார் ஆலய லோகோ">
+
+        <img
+            src="logod.png"
+            class="logo"
+            alt="புனித சவேரியார் ஆலய லோகோ"
+        >
 
         <div class="logo-text">
             <strong>புனித சவேரியார் ஆலயம்</strong>
             <span>மேலகோவில்பட்டி • MKP</span>
         </div>
+
     </div>
+
 
     <div class="nav-actions">
 
-        <button class="nav-btn home" onclick="goHome()" aria-label="முகப்பு">⌂</button>
+        <!-- முகப்பு -->
 
-        <button class="nav-btn desktop-hide"
-        onclick="window.open('https://youtube.com/@st.xavierschurchmkp','_blank')"
-        aria-label="YouTube">▶</button>
+        <button
+            class="nav-btn home"
+            onclick="goHome()"
+            aria-label="முகப்பு"
+        >
+            <span class="nav-icon">⌂</span>
+        </button>
 
-        <button class="nav-btn desktop-hide"
-        onclick="window.open('https://www.instagram.com/st_xaviers_church_mkp/','_blank')"
-        aria-label="Instagram">◎</button>
 
-        <button class="nav-btn"
-        onclick="togglePriest()"
-        aria-label="பங்குத்தந்தை தகவல்">✦</button>
+        <!-- YouTube -->
+
+        <button
+            class="nav-btn"
+            onclick="openLink('https://youtube.com/@st.xavierschurchmkp')"
+            aria-label="YouTube"
+        >
+            <span class="nav-icon">▶</span>
+            <span class="nav-label">YouTube</span>
+        </button>
+
+
+        <!-- WhatsApp -->
+
+        <button
+            class="nav-btn"
+            onclick="openLink('https://whatsapp.com/channel/0029VbCi5BW0AgWK4K3ulF1k')"
+            aria-label="WhatsApp"
+        >
+            <span class="nav-icon">◉</span>
+            <span class="nav-label">WhatsApp</span>
+        </button>
+
+
+        <!-- Instagram -->
+
+        <button
+            class="nav-btn"
+            onclick="openLink('https://www.instagram.com/st_xaviers_church_mkp/')"
+            aria-label="Instagram"
+        >
+            <span class="nav-icon">◎</span>
+            <span class="nav-label">Instagram</span>
+        </button>
+
+
+        <!-- Google Maps -->
+
+        <button
+            class="nav-btn"
+            onclick="openLink('https://maps.app.goo.gl/NdeRW1CRcMsw4L3H9')"
+            aria-label="Google Maps"
+        >
+            <span class="nav-icon">⌖</span>
+            <span class="nav-label">Maps</span>
+        </button>
+
+
+        <!-- பங்குத்தந்தை -->
+
+        <button
+            class="nav-btn priest-nav"
+            onclick="togglePriest(event)"
+            aria-label="பங்குத்தந்தை"
+        >
+            <span class="nav-icon">✦</span>
+            <span>பங்குத்தந்தை</span>
+        </button>
 
     </div>
+
 </nav>
 
-<!-- EVENT BAR -->
+
+<!-- =========================
+     EVENT BAR
+========================= -->
+
 <div class="event-wrap">
+
     <div class="event-track">
 
-        <div class="event-item">✦ புதுவருடம், அந்தோனியார் பொங்கல் - ஜனவரி-1,16</div>
-        <div class="event-item">✦ சவேரியார் அருளிக்கம் நாள் - மார்ச்-1</div>
-        <div class="event-item">✦ மாதா நவநாள் திருவிழா - மே 31</div>
-        <div class="event-item">✦ இரக்கத்தின் ஆண்டவர் மாதம் - ஜுன்</div>
-        <div class="event-item">✦ பங்கு உதயமான மாதம் - ஆகஸ்ட் 4</div>
-        <div class="event-item">✦ மாதா பிறந்தநாள் - செப்டம்பர் 8</div>
-        <div class="event-item">✦ ஜெபமாலை மாதம் - அக்டோபர்</div>
-        <div class="event-item">✦ புனித சவேரியார் கொடியேற்றம் - நவம்பர் 25</div>
-        <div class="event-item">✦ அன்னதானப் பெருவிழா, கிறிஸ்மஸ் பெருவிழா - டிசம்பர்-3,25</div>
+        <div class="event-item">
+            ✦ புதுவருடம், அந்தோனியார் பொங்கல் - ஜனவரி-1,16
+        </div>
 
-        <div class="event-item">✦ புதுவருடம், அந்தோனியார் பொங்கல் - ஜனவரி-1,16</div>
-        <div class="event-item">✦ சவேரியார் அருளிக்கம் நாள் - மார்ச்-1</div>
-        <div class="event-item">✦ மாதா நவநாள் திருவிழா - மே 31</div>
-        <div class="event-item">✦ இரக்கத்தின் ஆண்டவர் மாதம் - ஜுன்</div>
-        <div class="event-item">✦ பங்கு உதயமான மாதம் - ஆகஸ்ட் 4</div>
-        <div class="event-item">✦ மாதா பிறந்தநாள் - செப்டம்பர் 8</div>
-        <div class="event-item">✦ ஜெபமாலை மாதம் - அக்டோபர்</div>
-        <div class="event-item">✦ புனித சவேரியார் கொடியேற்றம் - நவம்பர் 25</div>
-        <div class="event-item">✦ அன்னதானப் பெருவிழா, கிறிஸ்மஸ் பெருவிழா - டிசம்பர்-3,25</div>
+        <div class="event-item">
+            ✦ சவேரியார் அருளிக்கம் நாள் - மார்ச்-1
+        </div>
+
+        <div class="event-item">
+            ✦ மாதா நவநாள் திருவிழா - மே 31
+        </div>
+
+        <div class="event-item">
+            ✦ இரக்கத்தின் ஆண்டவர் மாதம் - ஜுன்
+        </div>
+
+        <div class="event-item">
+            ✦ பங்கு உதயமான மாதம் - ஆகஸ்ட் 4
+        </div>
+
+        <div class="event-item">
+            ✦ மாதா பிறந்தநாள் - செப்டம்பர் 8
+        </div>
+
+        <div class="event-item">
+            ✦ ஜெபமாலை மாதம் - அக்டோபர்
+        </div>
+
+        <div class="event-item">
+            ✦ புனித சவேரியார் கொடியேற்றம் - நவம்பர் 25
+        </div>
+
+        <div class="event-item">
+            ✦ அன்னதானப் பெருவிழா, கிறிஸ்மஸ் பெருவிழா - டிசம்பர்-3,25
+        </div>
+
+
+        <div class="event-item">
+            ✦ புதுவருடம், அந்தோனியார் பொங்கல் - ஜனவரி-1,16
+        </div>
+
+        <div class="event-item">
+            ✦ சவேரியார் அருளிக்கம் நாள் - மார்ச்-1
+        </div>
+
+        <div class="event-item">
+            ✦ மாதா நவநாள் திருவிழா - மே 31
+        </div>
+
+        <div class="event-item">
+            ✦ இரக்கத்தின் ஆண்டவர் மாதம் - ஜுன்
+        </div>
+
+        <div class="event-item">
+            ✦ பங்கு உதயமான மாதம் - ஆகஸ்ட் 4
+        </div>
+
+        <div class="event-item">
+            ✦ மாதா பிறந்தநாள் - செப்டம்பர் 8
+        </div>
+
+        <div class="event-item">
+            ✦ ஜெபமாலை மாதம் - அக்டோபர்
+        </div>
+
+        <div class="event-item">
+            ✦ புனித சவேரியார் கொடியேற்றம் - நவம்பர் 25
+        </div>
+
+        <div class="event-item">
+            ✦ அன்னதானப் பெருவிழா, கிறிஸ்மஸ் பெருவிழா - டிசம்பர்-3,25
+        </div>
 
     </div>
+
 </div>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
+
 <header class="hero" id="home">
 
     <div class="hero-card">
 
         <div class="hero-content">
 
-            <img src="logod.png" class="hero-logo" alt="புனித சவேரியார் ஆலயம்">
+            <img
+                src="logod.png"
+                class="hero-logo"
+                alt="புனித சவேரியார் ஆலயம்"
+            >
 
             <div class="badge">
                 <i></i>
                 புனித சவேரியார் ஆலயம் • மேலகோவில்பட்டி
             </div>
 
-            <h1>புனித சவேரியார் ஆலயம்</h1>
+            <h1>
+                புனித சவேரியார் ஆலயம்
+            </h1>
 
-            <h2>மேலைநகர் • மேலகோவில்பட்டி</h2>
+            <h2>
+                மேலைநகர் • மேலகோவில்பட்டி
+            </h2>
 
             <p>
                 இறைநம்பிக்கை • அன்பு • அமைதி • சேவை
                 <br>
-                நம் பங்கின் வரலாறு, புகைப்படங்கள், குழுக்கள் மற்றும் திருப்பலி நேரங்களை இங்கே காணலாம்.
+                நம் பங்கின் வரலாறு, புகைப்படங்கள், குழுக்கள் மற்றும் திருப்பலி
+                நேரங்களை இங்கே காணலாம்.
             </p>
 
             <div class="hero-buttons">
 
-                <button class="hero-btn primary"
-                onclick="scrollToSection('history')">
+                <button
+                    class="hero-btn primary"
+                    onclick="scrollToSection('history')"
+                >
                     ஆலய வரலாறு
                 </button>
 
-                <button class="hero-btn"
-                onclick="scrollToSection('gallery')">
+                <button
+                    class="hero-btn"
+                    onclick="scrollToSection('gallery')"
+                >
                     புகைப்படங்கள்
                 </button>
 
-                <button class="hero-btn"
-                onclick="scrollToSection('groups')">
+                <button
+                    class="hero-btn"
+                    onclick="scrollToSection('groups')"
+                >
                     ஆலய குழுக்கள்
                 </button>
 
-                <button class="hero-btn"
-                onclick="scrollToSection('mass')">
+                <button
+                    class="hero-btn"
+                    onclick="scrollToSection('mass')"
+                >
                     திருப்பலிகள்
                 </button>
 
-                <button class="hero-btn"
-                onclick="scrollToSection('contact')">
+                <button
+                    class="hero-btn"
+                    onclick="scrollToSection('contact')"
+                >
                     முகவரி
                 </button>
 
-                <button class="hero-btn"
-                onclick="scrollToSection('priests')">
+                <button
+                    class="hero-btn"
+                    onclick="scrollToSection('priests')"
+                >
                     பணியாற்றிய அருட்தந்தையர்கள்
                 </button>
 
@@ -1332,47 +1635,93 @@ footer strong{
 </header>
 
 
-<!-- CHURCH INFO -->
+<!-- =========================
+     INFO
+========================= -->
+
 <section id="info">
 
     <div class="section-head">
-        <div class="section-kicker">எங்களைப் பற்றி</div>
-        <h2>ஆலய தகவல்கள்</h2>
-        <p>புனித சவேரியார் ஆலயம் • மேலகோவில்பட்டி</p>
+
+        <div class="section-kicker">
+            எங்களைப் பற்றி
+        </div>
+
+        <h2>
+            ஆலய தகவல்கள்
+        </h2>
+
+        <p>
+            புனித சவேரியார் ஆலயம் • மேலகோவில்பட்டி
+        </p>
+
     </div>
+
 
     <div class="info-grid">
 
         <div class="glass-card info-card">
+
             <div class="info-icon">⌂</div>
+
             <div>
                 <h3>ஆலயத்தின் பெயர்</h3>
-                <p>St. Xavier's Church, Melainagar<br>புனித சவேரியார் ஆலயம், மேலைநகர்</p>
+
+                <p>
+                    St. Xavier's Church, Melainagar
+                    <br>
+                    புனித சவேரியார் ஆலயம், மேலைநகர்
+                </p>
             </div>
+
         </div>
 
+
         <div class="glass-card info-card">
+
             <div class="info-icon">⌖</div>
+
             <div>
                 <h3>அமைவிடம்</h3>
-                <p>மேலக்கோவில்பட்டி, வத்தலக்குண்டு, திண்டுக்கல், தமிழ்நாடு</p>
+
+                <p>
+                    மேலக்கோவில்பட்டி, வத்தலக்குண்டு,
+                    திண்டுக்கல், தமிழ்நாடு
+                </p>
             </div>
+
         </div>
 
+
         <div class="glass-card info-card">
+
             <div class="info-icon">✧</div>
+
             <div>
                 <h3>தேவ பக்தி இடம்</h3>
-                <p>Melainagar<br>மேலைநகர்</p>
+
+                <p>
+                    Melainagar
+                    <br>
+                    மேலைநகர்
+                </p>
             </div>
+
         </div>
 
+
         <div class="glass-card info-card">
+
             <div class="info-icon">@</div>
+
             <div>
                 <h3>மின்னஞ்சல்</h3>
-                <p>stxavierschurchmkp@gmail.com</p>
+
+                <p>
+                    stxavierschurchmkp@gmail.com
+                </p>
             </div>
+
         </div>
 
     </div>
@@ -1380,64 +1729,84 @@ footer strong{
 </section>
 
 
-<!-- HISTORY -->
+<!-- =========================
+     HISTORY
+========================= -->
+
 <section id="history">
 
     <div class="section-head">
-        <div class="section-kicker">வரலாறு</div>
-        <h2>ஆலய வரலாறு</h2>
-        <p>நம்பிக்கையிலிருந்து உருவான ஒரு நீண்ட பயணம்</p>
+
+        <div class="section-kicker">
+            வரலாறு
+        </div>
+
+        <h2>
+            ஆலய வரலாறு
+        </h2>
+
+        <p>
+            நம்பிக்கையிலிருந்து உருவான ஒரு நீண்ட பயணம்
+        </p>
+
     </div>
+
 
     <div class="glass-card history-card">
 
         <p>
-        சங்கத்தமிழ் வளர்த்த மதுரை மாநகரின் மேற்பகுதியில், மஞ்சளாறு, மருதாநதி, வைகை
-        போன்ற ஆறுகளால் வளம் பெற்ற பகுதியில் அமைந்துள்ள மேலகோவில்பட்டி பங்கின் வரலாறு
-        சுமார் 250 ஆண்டுகளுக்கு முன்பு தொடங்குகிறது. தஞ்சாவூரில் ஏற்பட்ட பெரும் வெள்ளத்தின்
-        காரணமாக அங்கிருந்த மக்கள் பல்வேறு பகுதிகளுக்கு இடம்பெயர்ந்தனர்.
+            சங்கத்தமிழ் வளர்த்த மதுரை மாநகரின் மேற்பகுதியில்,
+            மஞ்சளாறு, மருதாநதி, வைகை போன்ற ஆறுகளால் வளம் பெற்ற
+            பகுதியில் அமைந்துள்ள மேலகோவில்பட்டி பங்கின் வரலாறு
+            சுமார் 250 ஆண்டுகளுக்கு முன்பு தொடங்குகிறது. தஞ்சாவூரில்
+            ஏற்பட்ட பெரும் வெள்ளத்தின் காரணமாக அங்கிருந்த மக்கள்
+            பல்வேறு பகுதிகளுக்கு இடம்பெயர்ந்தனர்.
         </p>
 
         <br>
 
         <p>
-        திருக்காட்டுப்பள்ளி ராஜேந்திர நாட்டாள்வார் மற்றும் அவரது குடும்பத்தினர்
-        நல்லதம்பி, குளன், முத்தப்பன், சின்னத்தம்பி ஆகியோர் இப்பகுதிக்கு வந்து குடியேறினர்.
-        விவசாயம், கால்நடை வளர்ப்பு மற்றும் கூலி வேலைகளில் ஈடுபட்டு வாழ்ந்து வந்தனர்.
-        பின்னர் ஜமீன்தாரிடம் வேலை செய்து வந்தனர்.
+            திருக்காட்டுப்பள்ளி ராஜேந்திர நாட்டாள்வார் மற்றும் அவரது
+            குடும்பத்தினர் நல்லதம்பி, குளன், முத்தப்பன், சின்னத்தம்பி
+            ஆகியோர் இப்பகுதிக்கு வந்து குடியேறினர். விவசாயம்,
+            கால்நடை வளர்ப்பு மற்றும் கூலி வேலைகளில் ஈடுபட்டு
+            வாழ்ந்து வந்தனர். பின்னர் ஜமீன்தாரிடம் வேலை செய்து வந்தனர்.
         </p>
 
         <br>
 
         <p>
-        சவரிமூப்பன் என்பவரின் மூலம் கிறிஸ்தவ நம்பிக்கையை ஏற்றுக்கொண்டனர்.
-        ஆரம்ப காலங்களில் சிலுக்குவார்பட்டி பங்கின் வழியாக ஆன்மீக பணிகள்
-        மேற்கொள்ளப்பட்டன. புனித பிரான்சிஸ் சவேரியார் பாதுகாவலராக தேர்ந்தெடுக்கப்பட்டு
-        சிற்றாலயம் அமைக்கப்பட்டது.
+            சவரிமூப்பன் என்பவரின் மூலம் கிறிஸ்தவ நம்பிக்கையை
+            ஏற்றுக்கொண்டனர். ஆரம்ப காலங்களில் சிலுக்குவார்பட்டி
+            பங்கின் வழியாக ஆன்மீக பணிகள் மேற்கொள்ளப்பட்டன.
+            புனித பிரான்சிஸ் சவேரியார் பாதுகாவலராக தேர்ந்தெடுக்கப்பட்டு
+            சிற்றாலயம் அமைக்கப்பட்டது.
         </p>
 
         <br>
 
         <p>
-        பின்னர் இப்பகுதியில் பெரிய ஆலயம் கட்டுவதற்கான முயற்சிகள் மேற்கொள்ளப்பட்டன.
-        1948 ஆம் ஆண்டு அருட்தந்தை P.S. அந்தோனி அவர்களின் பணிக்காலத்தில்,
-        பொதுமக்களின் ஒத்துழைப்புடன் கல், கடுக்காய், ஆற்றுமணல், சுண்ணாம்பு போன்ற
-        பொருட்களை பயன்படுத்தி பெரிய ஆலயம் கட்டப்பட்டது.
+            பின்னர் இப்பகுதியில் பெரிய ஆலயம் கட்டுவதற்கான முயற்சிகள்
+            மேற்கொள்ளப்பட்டன. 1948 ஆம் ஆண்டு அருட்தந்தை P.S. அந்தோனி
+            அவர்களின் பணிக்காலத்தில், பொதுமக்களின் ஒத்துழைப்புடன்
+            கல், கடுக்காய், ஆற்றுமணல், சுண்ணாம்பு போன்ற பொருட்களை
+            பயன்படுத்தி பெரிய ஆலயம் கட்டப்பட்டது.
         </p>
 
         <br>
 
         <p>
-        பழைய சிற்றாலயம் அமைந்திருந்த இடத்தில் 1974 ஆம் ஆண்டு சிறிய சிலுவை மேடை
-        அமைக்கப்பட்டது. பின்னர் ஏற்பட்ட தீ விபத்தால் அது சேதமடைந்தது.
+            பழைய சிற்றாலயம் அமைந்திருந்த இடத்தில் 1974 ஆம் ஆண்டு
+            சிறிய சிலுவை மேடை அமைக்கப்பட்டது. பின்னர் ஏற்பட்ட
+            தீ விபத்தால் அது சேதமடைந்தது.
         </p>
 
         <br>
 
         <p>
-        2018 ஆம் ஆண்டு ஆகஸ்ட் 4 ஆம் தேதி மேலகோவில்பட்டி,
-        வத்தலக்குண்டு பங்கிலிருந்து பிரிக்கப்பட்டு, மதுரை உயர்மறைமாவட்டத்தின்
-        75வது புதிய பங்காக உருவானது.
+            2018 ஆம் ஆண்டு ஆகஸ்ட் 4 ஆம் தேதி மேலகோவில்பட்டி,
+            வத்தலக்குண்டு பங்கிலிருந்து பிரிக்கப்பட்டு, மதுரை
+            உயர்மறைமாவட்டத்தின் 75வது புதிய பங்காக உருவானது.
         </p>
 
     </div>
@@ -1445,14 +1814,28 @@ footer strong{
 </section>
 
 
-<!-- GALLERY -->
+<!-- =========================
+     GALLERY
+========================= -->
+
 <section id="gallery">
 
     <div class="section-head">
-        <div class="section-kicker">புகைப்படங்கள்</div>
-        <h2>ஆலய நினைவுகள்</h2>
-        <p>புனிதமான தருணங்களின் தொகுப்பு</p>
+
+        <div class="section-kicker">
+            புகைப்படங்கள்
+        </div>
+
+        <h2>
+            ஆலய நினைவுகள்
+        </h2>
+
+        <p>
+            புனிதமான தருணங்களின் தொகுப்பு
+        </p>
+
     </div>
+
 
     <div class="gallery">
 
@@ -1685,14 +2068,28 @@ footer strong{
 </section>
 
 
-<!-- GROUPS -->
+<!-- =========================
+     GROUPS
+========================= -->
+
 <section id="groups">
 
     <div class="section-head">
-        <div class="section-kicker">பங்கு குழுக்கள்</div>
-        <h2>ஆலய குழுக்கள்</h2>
-        <p>ஒன்றிணைந்து செயல்படும் நமது பங்கு குடும்பம்</p>
+
+        <div class="section-kicker">
+            பங்கு குழுக்கள்
+        </div>
+
+        <h2>
+            ஆலய குழுக்கள்
+        </h2>
+
+        <p>
+            ஒன்றிணைந்து செயல்படும் நமது பங்கு குடும்பம்
+        </p>
+
     </div>
+
 
     <div class="groups">
 
@@ -1722,33 +2119,79 @@ footer strong{
 </section>
 
 
-<!-- MASS -->
+<!-- =========================
+     MASS
+========================= -->
+
 <section id="mass">
 
     <div class="section-head">
-        <div class="section-kicker">திருப்பலி</div>
-        <h2>திருப்பலி நேரங்கள்</h2>
-        <p>இறைவனோடு இணையும் நேரம்</p>
+
+        <div class="section-kicker">
+            திருப்பலி
+        </div>
+
+        <h2>
+            திருப்பலி நேரங்கள்
+        </h2>
+
+        <p>
+            இறைவனோடு இணையும் நேரம்
+        </p>
+
     </div>
+
 
     <div class="mass-grid">
 
         <div class="glass-card mass-card">
-            <div class="mass-day">ஞாயிறு</div>
-            <div class="mass-time">7:30 AM</div>
-            <div class="mass-note">Sunday</div>
+
+            <div class="mass-day">
+                ஞாயிறு
+            </div>
+
+            <div class="mass-time">
+                7:30 AM
+            </div>
+
+            <div class="mass-note">
+                Sunday
+            </div>
+
         </div>
 
-        <div class="glass-card mass-card">
-            <div class="mass-day">திங்கள் – வெள்ளி</div>
-            <div class="mass-time">6:30 PM</div>
-            <div class="mass-note">Monday – Friday</div>
-        </div>
 
         <div class="glass-card mass-card">
-            <div class="mass-day">முதல் வெள்ளிக்கிழமை</div>
-            <div class="mass-time">6:30 PM</div>
-            <div class="mass-note">First Friday</div>
+
+            <div class="mass-day">
+                திங்கள் – வெள்ளி
+            </div>
+
+            <div class="mass-time">
+                6:30 PM
+            </div>
+
+            <div class="mass-note">
+                Monday – Friday
+            </div>
+
+        </div>
+
+
+        <div class="glass-card mass-card">
+
+            <div class="mass-day">
+                முதல் வெள்ளிக்கிழமை
+            </div>
+
+            <div class="mass-time">
+                6:30 PM
+            </div>
+
+            <div class="mass-note">
+                First Friday
+            </div>
+
         </div>
 
     </div>
@@ -1756,33 +2199,85 @@ footer strong{
 </section>
 
 
-<!-- PRIESTS -->
+<!-- =========================
+     PRIESTS
+========================= -->
+
 <section id="priests">
 
     <div class="section-head">
-        <div class="section-kicker">பணியாற்றியவர்கள்</div>
-        <h2>அருட்தந்தையர்கள்</h2>
-        <p>நமது பங்கில் பணியாற்றிய அருட்தந்தையர்கள்</p>
+
+        <div class="section-kicker">
+            பணியாற்றியவர்கள்
+        </div>
+
+        <h2>
+            அருட்தந்தையர்கள்
+        </h2>
+
+        <p>
+            நமது பங்கில் பணியாற்றிய அருட்தந்தையர்கள்
+        </p>
+
     </div>
+
 
     <div class="priest-list">
 
         <div class="glass-card priest">
-            <div class="avatar">✦</div>
-            <h3>அருட்தந்தை ஆண்டனி செழியன் CSC</h3>
-            <p>2018 – 2019<br>திருத்தொண்டராக</p>
+
+            <div class="avatar">
+                ✦
+            </div>
+
+            <h3>
+                அருட்தந்தை ஆண்டனி செழியன் CSC
+            </h3>
+
+            <p>
+                2018 – 2019
+                <br>
+                திருத்தொண்டராக
+            </p>
+
         </div>
 
-        <div class="glass-card priest">
-            <div class="avatar">✦</div>
-            <h3>அருட்தந்தை மனு பிரவீன் CSC</h3>
-            <p>2019 – 2020<br>திருத்தொண்டராக</p>
-        </div>
 
         <div class="glass-card priest">
-            <div class="avatar">✦</div>
-            <h3>அருட்தந்தை ஜெயராஜ் CSC</h3>
-            <p>2018 – 2024<br>பங்குத்தந்தையாக</p>
+
+            <div class="avatar">
+                ✦
+            </div>
+
+            <h3>
+                அருட்தந்தை மனு பிரவீன் CSC
+            </h3>
+
+            <p>
+                2019 – 2020
+                <br>
+                திருத்தொண்டராக
+            </p>
+
+        </div>
+
+
+        <div class="glass-card priest">
+
+            <div class="avatar">
+                ✦
+            </div>
+
+            <h3>
+                அருட்தந்தை ஜெயராஜ் CSC
+            </h3>
+
+            <p>
+                2018 – 2024
+                <br>
+                பங்குத்தந்தையாக
+            </p>
+
         </div>
 
     </div>
@@ -1790,47 +2285,99 @@ footer strong{
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================
+     CONTACT
+========================= -->
+
 <section id="contact">
 
     <div class="section-head">
-        <div class="section-kicker">தொடர்பு</div>
-        <h2>எங்களை அணுகுங்கள்</h2>
-        <p>புனித சவேரியார் ஆலயம் • மேலகோவில்பட்டி</p>
+
+        <div class="section-kicker">
+            தொடர்பு
+        </div>
+
+        <h2>
+            எங்களை அணுகுங்கள்
+        </h2>
+
+        <p>
+            புனித சவேரியார் ஆலயம் • மேலகோவில்பட்டி
+        </p>
+
     </div>
+
 
     <div class="contact-grid">
 
         <div class="glass-card contact-card">
 
             <div class="contact-row">
-                <div class="contact-icon">⌂</div>
+
+                <div class="contact-icon">
+                    ⌂
+                </div>
+
                 <div>
-                    <strong>ஆலயம்</strong>
+
+                    <strong>
+                        ஆலயம்
+                    </strong>
+
                     <span>
-                        St. Xavier's Church, Melainagar<br>
+                        St. Xavier's Church, Melainagar
+                        <br>
                         புனித சவேரியார் ஆலயம், மேலநகர்
                     </span>
+
                 </div>
+
             </div>
 
+
             <div class="contact-row">
-                <div class="contact-icon">⌖</div>
+
+                <div class="contact-icon">
+                    ⌖
+                </div>
+
                 <div>
-                    <strong>முகவரி</strong>
+
+                    <strong>
+                        முகவரி
+                    </strong>
+
                     <span>
-                        Melakovilpatti, Batlagundu, Dindigul, Tamil Nadu, India<br>
-                        மேலக்கோவில்பட்டி, வத்தலக்குண்டு, திண்டுக்கல், தமிழ்நாடு
+                        Melakovilpatti, Batlagundu, Dindigul,
+                        Tamil Nadu, India
+                        <br>
+                        மேலக்கோவில்பட்டி, வத்தலக்குண்டு,
+                        திண்டுக்கல், தமிழ்நாடு
                     </span>
+
                 </div>
+
             </div>
 
+
             <div class="contact-row">
-                <div class="contact-icon">@</div>
-                <div>
-                    <strong>மின்னஞ்சல்</strong>
-                    <span>stxavierschurchmkp@gmail.com</span>
+
+                <div class="contact-icon">
+                    @
                 </div>
+
+                <div>
+
+                    <strong>
+                        மின்னஞ்சல்
+                    </strong>
+
+                    <span>
+                        stxavierschurchmkp@gmail.com
+                    </span>
+
+                </div>
+
             </div>
 
         </div>
@@ -1839,19 +2386,34 @@ footer strong{
         <div class="glass-card contact-card">
 
             <div class="contact-row">
-                <div class="contact-icon">✦</div>
+
+                <div class="contact-icon">
+                    ✦
+                </div>
+
                 <div>
-                    <strong>புனித சவேரியார் ஆலயம்</strong>
+
+                    <strong>
+                        புனித சவேரியார் ஆலயம்
+                    </strong>
+
                     <span>
-                        மேலகோவில்பட்டி<br>
-                        வத்தலக்குண்டு<br>
+                        மேலகோவில்பட்டி
+                        <br>
+                        வத்தலக்குண்டு
+                        <br>
                         திண்டுக்கல்
                     </span>
+
                 </div>
+
             </div>
 
-            <button class="map-button"
-            onclick="window.open('https://maps.app.goo.gl/NdeRW1CRcMsw4L3H9','_blank')">
+
+            <button
+                class="map-button"
+                onclick="openLink('https://maps.app.goo.gl/NdeRW1CRcMsw4L3H9')"
+            >
                 📍 Google Maps-ல் வழியைப் பார்க்க
             </button>
 
@@ -1862,18 +2424,37 @@ footer strong{
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    <div>© 2026 <strong>St Xavier Church MKP</strong></div>
-    <div>Website created by <strong>Yonas</strong></div>
-    <div>இணையதள உருவாக்குநர்: <strong>Yonas</strong></div>
+
+    <div>
+        © 2026 <strong>St Xavier Church MKP</strong>
+    </div>
+
+    <div>
+        Website created by <strong>Yonas</strong>
+    </div>
+
+    <div>
+        இணையதள உருவாக்குநர்:
+        <strong>Yonas</strong>
+    </div>
+
 </footer>
 
 
-<!-- PRIEST POPUP -->
+<!-- =========================
+     PRIEST POPUP
+========================= -->
+
 <div class="priest-menu" id="priestMenu">
 
-    <h3>பங்குத்தந்தை</h3>
+    <h3>
+        பங்குத்தந்தை
+    </h3>
 
     <p>
         பங்குத்தந்தை அருட்பணி. லாரன்ஸ் CSC
@@ -1884,29 +2465,51 @@ footer strong{
     </p>
 
     <p>
-        புனித சவேரியார் ஆலயம்<br>
-        மேலகோவில்பட்டி பங்கு<br>
+        புனித சவேரியார் ஆலயம்
+        <br>
+        மேலகோவில்பட்டி பங்கு
+        <br>
         வத்தலக்குண்டு.
     </p>
 
 </div>
 
 
-<!-- IMAGE VIEWER -->
-<div class="viewer" id="viewer" onclick="closeViewer(event)">
+<!-- =========================
+     IMAGE VIEWER
+========================= -->
 
-    <button class="close-viewer"
-    onclick="closeImg()">×</button>
+<div
+    class="viewer"
+    id="viewer"
+    onclick="closeViewer(event)"
+>
 
-    <img id="viewerImg" src="" alt="ஆலய புகைப்படம்">
+    <button
+        class="close-viewer"
+        onclick="closeImg()"
+    >
+        ×
+    </button>
+
+    <img
+        id="viewerImg"
+        src=""
+        alt="ஆலய புகைப்படம்"
+    >
 
 </div>
 
 
-<!-- TOP -->
-<button class="top-btn"
-onclick="goHome()"
-aria-label="மேலே செல்ல">
+<!-- =========================
+     TOP
+========================= -->
+
+<button
+    class="top-btn"
+    onclick="goHome()"
+    aria-label="மேலே செல்ல"
+>
     ↑
 </button>
 
@@ -1914,25 +2517,49 @@ aria-label="மேலே செல்ல">
 <script>
 
 /* =========================
-   SECTION SCROLL
+   LINK OPEN
 ========================= */
 
-function scrollToSection(id){
-    const el=document.getElementById(id);
+function openLink(url){
 
-    if(el){
-        el.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-    }
+    window.open(
+        url,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
 }
 
+
+/* =========================
+   HOME
+========================= */
+
 function goHome(){
+
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+
+}
+
+
+/* =========================
+   SECTION SCROLL
+========================= */
+
+function scrollToSection(id){
+
+    const element=document.getElementById(id);
+
+    if(!element) return;
+
+    element.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
 }
 
 
@@ -1940,7 +2567,11 @@ function goHome(){
    PRIEST MENU
 ========================= */
 
-function togglePriest(){
+function togglePriest(event){
+
+    if(event){
+        event.stopPropagation();
+    }
 
     const menu=document.getElementById("priestMenu");
 
@@ -1948,16 +2579,19 @@ function togglePriest(){
 
 }
 
-document.addEventListener("click",function(e){
+
+document.addEventListener("click",function(event){
 
     const menu=document.getElementById("priestMenu");
 
     if(
         menu.classList.contains("active") &&
-        !menu.contains(e.target) &&
-        !e.target.closest(".nav-btn")
+        !menu.contains(event.target) &&
+        !event.target.closest(".priest-nav")
     ){
+
         menu.classList.remove("active");
+
     }
 
 });
@@ -1980,6 +2614,7 @@ function openImg(src){
 
 }
 
+
 function closeImg(){
 
     const viewer=document.getElementById("viewer");
@@ -1990,17 +2625,19 @@ function closeImg(){
 
 }
 
-function closeViewer(e){
 
-    if(e.target.id==="viewer"){
+function closeViewer(event){
+
+    if(event.target.id==="viewer"){
         closeImg();
     }
 
 }
 
-document.addEventListener("keydown",function(e){
 
-    if(e.key==="Escape"){
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
         closeImg();
     }
 
@@ -2008,57 +2645,38 @@ document.addEventListener("keydown",function(e){
 
 
 /* =========================
-   PARALLAX BUBBLES
+   MOUSE PARALLAX BUBBLES
 ========================= */
 
-document.addEventListener("mousemove",function(e){
+document.addEventListener("mousemove",function(event){
 
-    const x=(e.clientX/window.innerWidth-.5)*20;
-    const y=(e.clientY/window.innerHeight-.5)*20;
+    const x=
+        (event.clientX / window.innerWidth - .5) * 15;
 
-    document.querySelectorAll(".bubble").forEach((bubble,index)=>{
+    const y=
+        (event.clientY / window.innerHeight - .5) * 15;
 
-        if(index%2===0){
+    document.querySelectorAll(".bubble").forEach(
+        (bubble,index)=>{
 
-            bubble.style.marginLeft=(x*(index%4+1))+"px";
-            bubble.style.marginTop=(y*(index%3+1))+"px";
+            if(index % 2 === 0){
+
+                bubble.style.marginLeft=
+                    (x * ((index % 3) + 1)) + "px";
+
+                bubble.style.marginTop=
+                    (y * ((index % 2) + 1)) + "px";
+
+            }
 
         }
-
-    });
+    );
 
 });
 
 
 /* =========================
-   TOUCH BUBBLE EFFECT
-========================= */
-
-let touchX=0;
-let touchY=0;
-
-document.addEventListener("touchmove",function(e){
-
-    if(!e.touches[0]) return;
-
-    touchX=e.touches[0].clientX;
-    touchY=e.touches[0].clientY;
-
-    document.documentElement.style.setProperty(
-        "--touch-x",
-        touchX+"px"
-    );
-
-    document.documentElement.style.setProperty(
-        "--touch-y",
-        touchY+"px"
-    );
-
-},{passive:true});
-
-
-/* =========================
-   IMAGE LAZY LOAD
+   LAZY LOADING
 ========================= */
 
 document.querySelectorAll("img").forEach(img=>{
@@ -2069,7 +2687,7 @@ document.querySelectorAll("img").forEach(img=>{
 
 
 /* =========================
-   ACTIVE SECTION EFFECT
+   SECTION REVEAL
 ========================= */
 
 const observer=new IntersectionObserver(
@@ -2092,10 +2710,13 @@ const observer=new IntersectionObserver(
     }
 );
 
+
 document.querySelectorAll("section").forEach(section=>{
 
     section.style.opacity="0";
-    section.style.transform="translateY(25px)";
+
+    section.style.transform="translateY(28px)";
+
     section.style.transition=
         "opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)";
 
@@ -2105,7 +2726,7 @@ document.querySelectorAll("section").forEach(section=>{
 
 
 /* =========================
-   PREVENT BROKEN LOGO LOOK
+   LOGO ERROR PROTECTION
 ========================= */
 
 document.querySelectorAll(".logo,.hero-logo").forEach(img=>{
@@ -2121,4 +2742,4 @@ document.querySelectorAll(".logo,.hero-logo").forEach(img=>{
 </script>
 
 </body>
-                 </html>
+    </html>
