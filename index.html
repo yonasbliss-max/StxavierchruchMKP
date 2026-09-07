@@ -1330,29 +1330,29 @@ nav.bottom{
 }
 
 
-/* 🌈 ICON BOX — DARK PINK MULTI-COLOUR GLOW */
-
-.hero .hero-card .hero-btn {
+/* ICON BOX - DARK PINK MULTI COLOUR GLOW */
+.hero .hero-card .icon-box,
+.hero .hero-card .icon-box *,
+.hero .hero-card .feature-box,
+.hero .hero-card .feature-box * {
     color: #c2185b !important;
     -webkit-text-fill-color: #c2185b !important;
 
     text-shadow:
         0 0 3px #ff1493,
-        0 0 7px #ff1493,
-        0 0 12px #9c27b0,
-        0 0 18px #00bfff,
-        0 0 25px #ffd700;
+        0 0 7px #9c27b0,
+        0 0 12px #00bfff,
+        0 0 18px #ffd700 !important;
 
-    transition: all 0.3s ease;
+    animation: iconTextGlow 2.5s ease-in-out infinite;
 }
 
-/* ✨ Moving colourful glow */
-@keyframes pinkMultiGlow {
-    0% {
+@keyframes iconTextGlow {
+    0%, 100% {
         text-shadow:
             0 0 3px #ff1493,
-            0 0 8px #ff1493,
-            0 0 15px #9c27b0;
+            0 0 7px #9c27b0,
+            0 0 12px #00bfff;
     }
 
     50% {
@@ -1362,18 +1362,6 @@ nav.bottom{
             0 0 18px #9c27b0,
             0 0 25px #ffd700;
     }
-
-    100% {
-        text-shadow:
-            0 0 3px #ff1493,
-            0 0 8px #ff1493,
-            0 0 15px #9c27b0;
-    }
-}
-
-.hero .hero-card .hero-btn {
-    animation: pinkMultiGlow 2.5s ease-in-out infinite;
-}
 }
 
 </style>
