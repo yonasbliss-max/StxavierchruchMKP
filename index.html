@@ -1000,6 +1000,317 @@ nav.bottom{
     display:none !important;
 }
 
+   /* ===== HERO CARD GLASS + CENTER ONLY ===== */
+
+.hero-card {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* Transparent Glass */
+    background: rgba(255, 255, 255, 0.18) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    /* Glass Border */
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    /* Soft Glass Shadow */
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.25);
+
+    overflow: hidden;
+}
+
+   /* =====================================================
+   🦋 BUTTERFLY + 🫧 BUBBLE EFFECT
+===================================================== */
+
+.hero-particles {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ================= BUBBLES ================= */
+
+.hero-particles .bubble {
+    position: absolute;
+    bottom: -70px;
+    display: block;
+    border-radius: 50%;
+
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid rgba(255,255,255,0.65);
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255,255,255,0.95),
+            rgba(255,255,255,0.25) 40%,
+            rgba(255,255,255,0.05) 70%,
+            transparent 75%
+        );
+
+    box-shadow:
+        inset 0 0 8px rgba(255,255,255,0.5),
+        0 0 12px rgba(255,255,255,0.25);
+
+    animation-name: bubbleFloat;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Bubble positions */
+
+.hero-particles .bubble:nth-child(1) {
+    left: 5%;
+    width: 15px;
+    height: 15px;
+    animation-duration: 10s;
+}
+
+.hero-particles .bubble:nth-child(2) {
+    left: 15%;
+    width: 27px;
+    height: 27px;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+.hero-particles .bubble:nth-child(3) {
+    left: 25%;
+    width: 13px;
+    height: 13px;
+    animation-duration: 9s;
+    animation-delay: 4s;
+}
+
+.hero-particles .bubble:nth-child(4) {
+    left: 37%;
+    width: 22px;
+    height: 22px;
+    animation-duration: 13s;
+    animation-delay: 1s;
+}
+
+.hero-particles .bubble:nth-child(5) {
+    left: 49%;
+    width: 16px;
+    height: 16px;
+    animation-duration: 11s;
+    animation-delay: 5s;
+}
+
+.hero-particles .bubble:nth-child(6) {
+    left: 61%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 16s;
+    animation-delay: 3s;
+}
+
+.hero-particles .bubble:nth-child(7) {
+    left: 73%;
+    width: 19px;
+    height: 19px;
+    animation-duration: 12s;
+    animation-delay: 6s;
+}
+
+.hero-particles .bubble:nth-child(8) {
+    left: 84%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 14s;
+    animation-delay: 1.5s;
+}
+
+.hero-particles .bubble:nth-child(9) {
+    left: 92%;
+    width: 14px;
+    height: 14px;
+    animation-duration: 9s;
+    animation-delay: 4.5s;
+}
+
+.hero-particles .bubble:nth-child(10) {
+    left: 97%;
+    width: 21px;
+    height: 21px;
+    animation-duration: 12s;
+    animation-delay: 7s;
+}
+
+@keyframes bubbleFloat {
+
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.5);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    30% {
+        transform: translate3d(25px, -25vh, 0) scale(1);
+    }
+
+    55% {
+        transform: translate3d(-25px, -50vh, 0) scale(0.9);
+        opacity: 0.7;
+    }
+
+    75% {
+        transform: translate3d(30px, -75vh, 0) scale(1.05);
+        opacity: 0.55;
+    }
+
+    100% {
+        transform: translate3d(-20px, -115vh, 0) scale(1.15);
+        opacity: 0;
+    }
+}
+
+
+/* ================= BUTTERFLIES ================= */
+
+.hero-particles .butterfly {
+    position: absolute;
+
+    display: block;
+
+    font-size: 32px;
+
+    opacity: 0;
+
+    filter:
+        drop-shadow(0 3px 5px rgba(0,0,0,0.3));
+
+    animation-name: butterflyFly;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Butterfly positions */
+
+.hero-particles .butterfly:nth-child(11) {
+    left: 3%;
+    top: 75%;
+    font-size: 32px;
+    animation-duration: 15s;
+}
+
+.hero-particles .butterfly:nth-child(12) {
+    left: 20%;
+    top: 65%;
+    font-size: 27px;
+    animation-duration: 18s;
+    animation-delay: 3s;
+}
+
+.hero-particles .butterfly:nth-child(13) {
+    left: 42%;
+    top: 80%;
+    font-size: 37px;
+    animation-duration: 16s;
+    animation-delay: 5s;
+}
+
+.hero-particles .butterfly:nth-child(14) {
+    left: 64%;
+    top: 70%;
+    font-size: 29px;
+    animation-duration: 20s;
+    animation-delay: 1s;
+}
+
+.hero-particles .butterfly:nth-child(15) {
+    left: 82%;
+    top: 78%;
+    font-size: 34px;
+    animation-duration: 15s;
+    animation-delay: 6s;
+}
+
+@keyframes butterflyFly {
+
+    0% {
+        transform:
+            translate3d(0, 100px, 0)
+            rotate(-10deg)
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    25% {
+        transform:
+            translate3d(80px, -100px, 0)
+            rotate(12deg)
+            scale(1);
+    }
+
+    45% {
+        transform:
+            translate3d(-60px, -250px, 0)
+            rotate(-15deg)
+            scale(0.95);
+    }
+
+    65% {
+        transform:
+            translate3d(100px, -420px, 0)
+            rotate(18deg)
+            scale(1.05);
+    }
+
+    82% {
+        transform:
+            translate3d(-80px, -580px, 0)
+            rotate(-12deg)
+            scale(0.9);
+
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translate3d(120px, -800px, 0)
+            rotate(15deg)
+            scale(1.15);
+
+        opacity: 0;
+    }
+}
+
+
+/* Make sure hero can contain the animation */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Keep your main hero content above the animation */
+
+.hero-card {
+    position: relative;
+    z-index: 2;
+   }
+
 </style>
 </head>
 
