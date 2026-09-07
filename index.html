@@ -1794,6 +1794,243 @@ nav.bottom{
 
 </section>
 
+   <!-- =========================================================
+     ST. XAVIER CHURCH - PORTRAIT VIDEO SECTION
+========================================================= -->
+
+<section id="videos" class="church-video-section">
+
+    <div class="video-content">
+
+        <h2 class="video-title">🎬 ஆலய காணொளிகள்</h2>
+
+        <!-- PORTRAIT VIDEO -->
+        <div class="video-wrapper">
+
+            <iframe
+                id="churchVideo"
+                src="https://www.youtube.com/embed/Px43I0wFTIY?autoplay=1&mute=1&playsinline=1&rel=0"
+                title="St. Xavier's Church Video"
+                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   VIDEO SECTION
+========================================================= */
+
+#videos.church-video-section {
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 15px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   VIDEO CONTENT
+========================================================= */
+
+#videos .video-content {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+#videos .video-title {
+
+    margin: 0 0 25px 0;
+
+    text-align: center;
+
+    font-size: clamp(26px, 4vw, 42px);
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   PORTRAIT VIDEO WRAPPER
+========================================================= */
+
+#videos .video-wrapper {
+
+    position: relative;
+
+    width: min(90vw, 430px);
+
+    height: min(80vh, 765px);
+
+    aspect-ratio: 9 / 16;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.45);
+
+    background: #000;
+
+}
+
+
+/* =========================================================
+   YOUTUBE VIDEO
+========================================================= */
+
+#videos .video-wrapper iframe {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    #videos.church-video-section {
+
+        min-height: 100vh;
+
+        padding: 25px 10px;
+
+    }
+
+    #videos .video-title {
+
+        font-size: 28px;
+
+        margin-bottom: 20px;
+
+    }
+
+    #videos .video-wrapper {
+
+        width: min(92vw, 400px);
+
+        height: min(78vh, 710px);
+
+        border-radius: 12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-height: 700px) {
+
+    #videos .video-wrapper {
+
+        height: 72vh;
+
+        width: auto;
+
+        aspect-ratio: 9 / 16;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMOOTH SCROLL
+========================================================= */
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+</style>
+
+
+<script>
+
+/* =========================================================
+   AUTO OPEN VIDEO SECTION
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    if (window.location.hash === "#videos") {
+
+        setTimeout(function () {
+
+            const videoSection =
+                document.getElementById("videos");
+
+            if (videoSection) {
+
+                videoSection.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            }
+
+        }, 500);
+
+    }
+
+});
+
+</script>
+
 <!-- =====================================================
      GROUPS
 ===================================================== -->
@@ -2134,239 +2371,9 @@ document.getElementById("popup").addEventListener(
 
 </script>
 
-   <!-- =========================================================
-     ST. XAVIER CHURCH - VIDEO SECTION
-     YouTube Video + Auto Scroll + Auto Play + View Counter
-========================================================= -->
+   
 
-<section id="videos" class="church-video-section">
 
-    <div class="video-content">
 
-        <h2 class="video-title">🎬 ஆலய காணொளிகள்</h2>
-
-        <div class="video-views">
-            👁️ <span id="videoViews">0</span> Views
-        </div>
-
-        <!-- BIG CENTER VIDEO -->
-        <div class="video-wrapper">
-
-            <iframe
-                id="churchVideo"
-                src="https://www.youtube.com/embed/Px43I0wFTIY?autoplay=1&mute=1&playsinline=1&rel=0"
-                title="St. Xavier's Church Video"
-                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                allowfullscreen>
-            </iframe>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<style>
-
-/* =========================================================
-   VIDEO SECTION
-========================================================= */
-
-#videos.church-video-section {
-
-    width: 100%;
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 50px 15px;
-
-    box-sizing: border-box;
-
-    text-align: center;
-
-}
-
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
-#videos .video-content {
-
-    width: 100%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-}
-
-
-/* =========================================================
-   TITLE
-========================================================= */
-
-#videos .video-title {
-
-    margin: 0 0 15px 0;
-
-    font-size: clamp(28px, 4vw, 45px);
-
-    font-weight: 700;
-
-}
-
-
-/* =========================================================
-   VIEW COUNTER
-========================================================= */
-
-#videos .video-views {
-
-    display: inline-block;
-
-    margin-bottom: 25px;
-
-    padding: 10px 22px;
-
-    border-radius: 30px;
-
-    font-size: 18px;
-
-    font-weight: 600;
-
-}
-
-
-/* =========================================================
-   VIDEO WRAPPER
-========================================================= */
-
-#videos .video-wrapper {
-
-    position: relative;
-
-    width: 100%;
-
-    max-width: 1150px;
-
-    margin: 0 auto;
-
-    aspect-ratio: 16 / 9;
-
-    overflow: hidden;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 15px 50px rgba(0,0,0,0.45);
-
-}
-
-
-/* =========================================================
-   YOUTUBE IFRAME
-========================================================= */
-
-#videos .video-wrapper iframe {
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    border: 0;
-
-    display: block;
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    #videos.church-video-section {
-
-        padding: 30px 10px;
-
-    }
-
-    #videos .video-wrapper {
-
-        border-radius: 10px;
-
-        width: 100%;
-
-    }
-
-    #videos .video-views {
-
-        font-size: 16px;
-
-        margin-bottom: 18px;
-
-    }
-
-}
-
-
-/* =========================================================
-   SMOOTH SCROLL
-========================================================= */
-
-html {
-
-    scroll-behavior: smooth;
-
-}
-
-</style>
-
-
-<script>
-
-/* =========================================================
-   AUTOMATICALLY OPEN VIDEOS SECTION
-   URL:
-   yourwebsite.com/#videos
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    if (window.location.hash === "#videos") {
-
-        setTimeout(function () {
-
-            const videoSection =
-                document.getElementById("videos");
-
-            if (videoSection) {
-
-                videoSection.scrollIntoView({
-
-                    behavior: "smooth",
-
-                    block: "start"
-
-                });
-
-            }
-
-        }, 700);
-
-    }
-
-});
-
-</script>
 </body>
 </html>
