@@ -1008,9 +1008,9 @@ nav.bottom{
     transform: translateX(-50%);
 
     /* Transparent Glass */
-    background: rgba(255, 255, 255, 0.18) !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 
     /* Glass Border */
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -1310,6 +1310,20 @@ nav.bottom{
     position: relative;
     z-index: 2;
    }
+
+   .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.15);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-card {
+    position: relative;
+    z-index: 2;
+}
 
 </style>
 </head>
